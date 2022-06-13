@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.square {
+  @apply relative;
+  &::after {
+    content: '';
+    @apply block pb-[100%];
+  }
+}
+
+/**
+ * Text Formatting
+ *
+ * @recommended h1, h2, h3, h4, h5, h6, hgroup, a, em, small, strong, ins, del, mark, p, pre, code, blockquote, q, address, cite, time, mark,
+ */
+
+h1, .seems-h1 {
+  @apply text-3xl lg:text-6xl font-bold mb-4 leading-tight
+}
+
+h2, .seems-h2 {
+  @apply text-xl lg:text-3xl font-semibold mb-4
+}
+
+h3, .seems-h3 {
+  @apply text-lg lg:text-xl font-semibold mb-4
+}
+
+p {
+  @apply text-base
+}
+
+
+/**
+ * Cta's
+ */
+.cta-primary {
+  @apply bg-primary text-white py-2 px-4 rounded-sm text-center transition-all hover:bg-primary/90 active:scale-95;
+}
+
+
+/**
+ * Pagination
+ */
+
+.nav-links {
+  @apply flex justify-center items-center gap-4 py-10;
+
+  .prev, .next {
+    @apply cta-primary;
+  }
+
+  .page-numbers.current {
+    @apply opacity-50;
+  }
+}

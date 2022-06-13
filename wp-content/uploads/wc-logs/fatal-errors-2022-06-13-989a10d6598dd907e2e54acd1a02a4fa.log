@@ -1,0 +1,36 @@
+2022-06-13T14:53:14+00:00 CRITICAL Uncaught Error: Class 'Theme\Hooks\Events\BookingAjax' not found in /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php:48
+Stack trace:
+#0 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php(25): Theme\Setup->registerHooks()
+#1 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/functions.php(6): Theme\Setup->__construct()
+#2 /Applications/MAMP/htdocs/moonwine/wp-settings.php(566): include('/Applications/M...')
+#3 /Applications/MAMP/htdocs/moonwine/wp-config.php(98): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/moonwine/wp-load.php(50): require_once('/Applications/M...')
+#5 /Applications/MAMP/htdocs/moonwine/wp-blog-header.php(13): require_once('/Applications/M...')
+#6 /Applications/MAMP/htdocs/moonwine/index.php(17): require('/Applications/M...')
+#7 {main}
+  thrown dans /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php à la ligne 48
+
+2022-06-13T14:53:32+00:00 CRITICAL Uncaught Error: Class 'Theme\Hooks\Events\BookingAjax' not found in /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php:48
+Stack trace:
+#0 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php(25): Theme\Setup->registerHooks()
+#1 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/functions.php(6): Theme\Setup->__construct()
+#2 /Applications/MAMP/htdocs/moonwine/wp-settings.php(566): include('/Applications/M...')
+#3 /Applications/MAMP/htdocs/moonwine/wp-config.php(98): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/moonwine/wp-load.php(50): require_once('/Applications/M...')
+#5 /Applications/MAMP/htdocs/moonwine/wp-blog-header.php(13): require_once('/Applications/M...')
+#6 /Applications/MAMP/htdocs/moonwine/index.php(17): require('/Applications/M...')
+#7 {main}
+  thrown dans /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php à la ligne 48
+
+2022-06-13T14:53:52+00:00 CRITICAL Uncaught Error: Class 'Theme\BookingAjax' not found in /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php:42
+Stack trace:
+#0 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php(19): Theme\Setup->registerHooks()
+#1 /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/functions.php(6): Theme\Setup->__construct()
+#2 /Applications/MAMP/htdocs/moonwine/wp-settings.php(566): include('/Applications/M...')
+#3 /Applications/MAMP/htdocs/moonwine/wp-config.php(98): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/moonwine/wp-load.php(50): require_once('/Applications/M...')
+#5 /Applications/MAMP/htdocs/moonwine/wp-blog-header.php(13): require_once('/Applications/M...')
+#6 /Applications/MAMP/htdocs/moonwine/index.php(17): require('/Applications/M...')
+#7 {main}
+  thrown dans /Applications/MAMP/htdocs/moonwine/wp-content/themes/wp-ecv/app/Setup.php à la ligne 42
+

@@ -1,0 +1,107 @@
+{
+	"version": 1,
+	"settings": {
+		"layout": {
+			"contentSize": "800px",
+			"wideSize": "1200px"
+		},
+		"color": {
+			"palette": [
+				{
+					"name": "Transparent",
+					"slug": "transparent",
+					"color": "transparent"
+				},
+				{
+					"name": "Primaire",
+					"slug": "primary",
+					"color": "#8737fa"
+				},
+				{
+					"name": "Secondaire",
+					"slug": "secondary",
+					"color": "#F18D2B"
+				},
+				{
+					"name": "Blanc",
+					"slug": "white",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Gris",
+					"slug": "grey",
+					"color": "#BEBEBE"
+				},
+				{
+					"name": "Gris Clair",
+					"slug": "light-grey",
+					"color": "#F8F8F8"
+				},
+				{
+					"name": "Neutre",
+					"slug": "neutral",
+					"color": "#2A312A"
+				},
+				{
+					"name": "Info",
+					"slug": "info",
+					"color": "#36D399"
+				},
+				{
+					"name": "Succès",
+					"slug": "success",
+					"color": "#36D399"
+				},
+				{
+					"name": "Attention",
+					"slug": "warning",
+					"color": "#FBBD23"
+				},
+				{
+					"name": "Erreur",
+					"slug": "error",
+					"color": "#F87272"
+				},
+				{
+					"name": "Base 100",
+					"slug": "base-100",
+					"color": "#FFFFFF"
+				}
+			]
+		},
+		"typography": {
+			"fontSizes": [
+				{
+					"name": "Small",
+					"slug": "small",
+					"size": "0.875rem"
+				},
+				{
+					"slug": "regular",
+					"name": "Regular",
+					"size": "1.5rem"
+				},
+				{
+					"slug": "large",
+					"name": "Large",
+					"size": "1.125rem"
+				},
+				{
+					"slug": "xl",
+					"name": "XL",
+					"size": "1.25rem"
+				},
+				{
+					"slug": "xxl",
+					"name": "2XL",
+					"size": "1.5rem"
+				},
+				{
+					"slug": "xxxl",
+					"name": "3XL",
+					"size": "1.875rem"
+				}
+			]
+		}
+	}
+}

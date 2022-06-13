@@ -1,0 +1,14 @@
+/**
+* Config
+*/
+@import "node_modules/swiper/swiper-bundle";
+@import "node_modules/sal.js/dist/sal";
+
+/**
+ * Base
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "base/general";
