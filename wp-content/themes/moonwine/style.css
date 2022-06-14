@@ -1,6 +1,10 @@
 /* Theme Name: moonwine */
+header {
+  background: blue;
+}
+
 body {
-  background: red;
+  background: green;
 }
 
 /*# sourceMappingURL=style.css.map */

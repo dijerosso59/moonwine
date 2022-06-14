@@ -92,32 +92,12 @@ function wpc_mime_types($mimes) {
 	return $mimes;
 }
 
-function admin_page() {
-    $file = plugin_dir_path( __FILE__ ) . "admin/admin.php";
-
-    if ( file_exists( $file ) )
-        require $file;
-}
-
-function admin_css() {
-	$admin_css_file = 'admin_css';
-	$admin_css_link = get_template_directory_uri() . '/admin/admin.css';
-
-	wp_enqueue_style($admin_css_file, $admin_css_link);
-}
-
 // Exectution de chaques fonction sur un hook précis
 add_action('after_setup_theme', 'luca_supports');
 
 add_action('wp_enqueue_scripts', 'luca_assets');
 
 add_action('widgets_init', 'luca_register_widget');
-
-add_action('admin_menu', function() {
-	add_menu_page( 'Page Admin', 'Page admin', 'manage_options', 'Page admin', 'admin_page', 'dashicons-calendar', 10 );
-});
-
-add_action('admin_print_styles', 'admin_css', 11);
 
 // Remet l'éditeur classique WordPress sur le hook use_block_editor_for_post
 // add_filter('use_block_editor_for_post', '__return_false', 10);
@@ -127,3 +107,5 @@ add_filter('nav_menu_css_class', 'luca_class_menu_li');
 add_filter('nav_menu_link_attributes', 'luca_class_menu_a');
 
 add_filter('upload_mimes', 'wpc_mime_types');
+
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );

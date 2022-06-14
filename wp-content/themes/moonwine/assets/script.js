@@ -1,3 +1,5 @@
 jQuery(function ($) {
+
+    // code jQuery
     
 });

@@ -1,0 +1,15 @@
+06-14-2022 @ 09:33:33 - ======================
+06-14-2022 @ 09:33:33 - Start check subscriptions that should change status after the payment due date at 2022-06-14 09:33:33
+06-14-2022 @ 09:33:33 - Search subscriptions with Payment due date < 2022-06-14 09:32:45
+06-14-2022 @ 09:33:33 - Found 0 subscriptions
+06-14-2022 @ 09:33:33 - ===============
+06-14-2022 @ 09:33:33 - ======================
+06-14-2022 @ 09:33:33 - Start expired cron at 2022-06-14 09:33:33
+06-14-2022 @ 09:33:33 - Search subscription with expired date < 2022-06-14 09:33:33
+06-14-2022 @ 09:33:33 - Found 0 subscriptions
+06-14-2022 @ 09:33:33 - ======================
+06-14-2022 @ 09:33:33 - ======================
+06-14-2022 @ 09:33:33 - Start resume orders cron at 2022-06-14 09:33:33
+06-14-2022 @ 09:33:33 - Search subscriptions to resume with expired pause date <  2022-06-14 07:33:33
+06-14-2022 @ 09:33:33 - Found 0 subscriptions
+06-14-2022 @ 09:33:33 - ======================
