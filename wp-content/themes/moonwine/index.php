@@ -3,5 +3,7 @@
 
     echo the_content();
 
+    phpinfo();
+
     get_footer()
 ?>

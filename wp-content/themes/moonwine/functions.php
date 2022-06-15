@@ -92,6 +92,13 @@ function wpc_mime_types($mimes) {
 	return $mimes;
 }
 
+function ur_theme_start_session()
+{
+    if (!session_id())
+        session_start();
+}
+add_action("init", "ur_theme_start_session", 1);
+
 // Exectution de chaques fonction sur un hook précis
 add_action('after_setup_theme', 'luca_supports');
 
