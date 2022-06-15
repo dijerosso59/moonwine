@@ -1,0 +1,69 @@
+$transition: 0.3s
+$largeur-base : calc(100% / 12)
+$largeur-2 :  calc((100% / 12) * 2 )
+$largeur-3 :  calc((100% / 12) * 3 )
+$largeur-4 :  calc((100% / 12) * 4 )
+$largeur-5 :  calc((100% / 12) * 5 )
+$largeur-6 :  calc((100% / 12) * 6 )
+$largeur-7 :  calc((100% / 12) * 7 )
+$largeur-8 :  calc((100% / 12) * 8 )
+$largeur-9 :  calc((100% / 12) * 9 )
+$largeur-10 :  calc((100% / 12) * 10 )
+$largeur-11 :  calc((100% / 12) * 11 )
+$black : #000
+$white : #FFF
+
+@mixin flex($vertical:false,$display:false,$align:false)
+  @if $vertical
+    align-items: $vertical
+  @else
+    align-items: center
+
+    @if $display
+      display: $display
+    @else
+      display: flex
+
+    @if $align
+      justify-content: $align
+    @else
+      justify-content: space-between
+
+
+
+@mixin transition
+  transition: all $transition
+
+@mixin hover
+  text-decoration: none
+  &:before,
+  &:after
+    transform: translate3d(0, 100%, 0)
+
+  &:after
+    transition-delay: 0.175s
+
+
+@mixin genericHover
+  &:before,
+  &:after
+    content: ''
+    position: absolute
+    height: 100%
+    width: 100%
+    bottom: 100%
+    left: 0
+    z-index: -1
+    transition: transform 0.3s
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1)
+
+  &:before
+    background: $blue-3
+
+  &:after
+    background: $black
+
+  &:hover
+    @include hover
+
+

@@ -1,5 +1,143 @@
-header
-  background: blue
+.header
+  height: auto
+  position: sticky
+  padding-top: 70px
+  top: -70px
+  z-index: 5
+  @media (max-width: 991px)
+    top: -5px
+    padding-top: 5px
 
-body
-    background: green
+  .navbar
+    background: $white
+    @include flex
+    height: 70px
+    width: 100%
+    &-header
+      @include flex
+
+    &-nav
+      @include flex
+      transition: none
+      @media (max-width: 991px)
+        align-items: center
+        background: $white
+        flex-direction: column
+        height: 100vh
+        justify-content: start
+        position: fixed
+        padding: 100px 0 0 0
+        margin: 0
+        top: 120%
+        left: 0
+        width: 100%
+        z-index: 1
+        overflow-y: auto
+
+      .menu-item
+        margin: 0 65px 0 0
+
+        @media (max-width: 1200px)
+          margin: 0 25px 0 0
+
+        @media (max-width: 991px)
+          margin: 0 0 60px 0
+          position: relative
+          text-align: center
+          width: 100%
+          &:before
+            background: $black
+            content: ""
+            width: 100%
+            position: absolute
+            height: 2px
+            bottom: -25px
+            right: 0
+          &:last-child:before
+            display: none
+        a
+          color: $black
+          font-family: Roboto
+          font-size: 1em
+          line-height: 1.375em
+
+    &-header
+      width: 100%
+      margin: 0 auto
+      @media (max-width: 991px)
+        width: 100%
+
+      .custom-logo
+        position: relative
+        z-index: 2
+
+    &-toggle
+      display: none
+
+      @media (max-width: 991px)
+        background: transparent
+        border: $white
+        cursor: pointer
+        display: block
+        height: 25px
+        margin: 15px 0 15px 15px
+        position: relative
+        padding: 5px 0
+        width: 27px
+        z-index: 10
+        right: 0
+        top: 0
+      span
+        border-radius: 2px
+        position: absolute
+        display: block
+        height: 5px
+        width: 100%
+        background-color: $black
+        transform: rotate(0)
+        transition: all .2s cubic-bezier(.895,.03,.685,.22)
+        &.one
+          top: 0
+
+        &.two
+          top: 10px
+
+        &.three
+          top: calc(100% - 5px)
+
+
+      &:not(.collapsed)
+        .one
+          transform: translateY(10px) rotate(45deg)
+
+        .two
+          opacity: 0
+
+        .three
+          transform: translateY(-10px) rotate(-45deg)
+
+.with-sticky-element
+  .header
+    padding-top: 50px
+    top: -50px
+    .navbar
+      height: 50px
+      .custom
+        &-logo
+          svg
+            height: 30px
+            width: auto
+
+      &-header
+        width: 100%
+
+
+
+
+
+
+
+
+
+
+
