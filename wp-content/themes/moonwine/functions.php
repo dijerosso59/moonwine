@@ -24,15 +24,15 @@ function luca_supports () {
 // Fonction ajout assets CSS et JS
 function luca_assets () {
 
-    wp_register_style('aos.css', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
+    wp_register_style('splide.css',  get_template_directory_uri() . '/node_modules/@splidejs/splide/dist/css/splide.min.css');
 
-    wp_register_script('aos.js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], false, true);
+    wp_register_script('splide.js', get_template_directory_uri() . '/node_modules/@splidejs/splide/dist/js/splide.min.js', [], false, true);
 
-    wp_enqueue_style('aos.css');
+    wp_enqueue_style('splide.css');
     wp_enqueue_style('style', get_stylesheet_uri());
 
-    wp_enqueue_script('aos.js');
-    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["aos.js", "jquery"], false, true);
+    wp_enqueue_script('splide.js');
+    wp_enqueue_script("script.js", get_template_directory_uri() . "/assets/script.js", ["splide.js", "jquery"], false, true);
 }
 
 // Fonction ajout class li menu
@@ -97,6 +97,7 @@ function ur_theme_start_session()
     if (!session_id())
         session_start();
 }
+
 add_action("init", "ur_theme_start_session", 1);
 
 // Exectution de chaques fonction sur un hook précis
