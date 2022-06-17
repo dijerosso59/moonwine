@@ -1,0 +1,136 @@
+.single-product
+  .single-product_desc
+    margin: 100px auto
+    .custom-flex
+      align-items: center
+      justify-content: space-between
+      display: flex
+
+      .woocommerce-product-gallery
+        width: 49%
+        display: flex
+        align-content: center
+        align-items: center
+        justify-content: center
+        height: 650px
+
+        .woocommerce-product-gallery__wrapper
+          height: max-content
+        .woocommerce-product-gallery__image
+          position: relative
+          &:before
+            content: url("assets/img/bulle.png")
+            width: auto
+            height: auto
+            background-repeat: no-repeat
+            position: absolute
+            top: -40px
+            right: -40px
+            z-index: -1
+
+          &:after
+            content: url("assets/img/zizag.png")
+            width: auto
+            height: auto
+            background-repeat: no-repeat
+            position: absolute
+            bottom: 0
+            left: -80px
+            z-index: -1
+
+          .wp-post-image
+            width: 370px
+            height: auto
+            position: relative
+
+
+      .summary
+        width: 48%
+        height: 650px
+        background: $beige-clair
+        padding: 60px
+
+        .custom-flex
+          align-items: stretch
+          justify-content: space-between
+          display: flex
+
+          &_column
+            width: 50%
+            &:first-child
+              margin-right: 50px
+
+          .product_title
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 700
+            font-size: 40px
+            margin-bottom: 20px
+            color: $vert-fonce
+
+          .product_meta
+            display: flex
+            flex-direction: row
+            align-items: flex-start
+            gap: 10px
+            margin-bottom: 40px
+
+            span
+              padding: 3px 10px
+              width: max-content
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 500
+              font-size: 14px
+
+              &:first-child
+                background: $beige
+              &:nth-child(2)
+                background: $orange
+                color: $white
+              &:last-child
+                background: $vert-clair
+
+          .years_cuve
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 700
+            font-size: 16px
+            letter-spacing: 3px
+            text-transform: uppercase
+            color: $vert-fonce
+            margin-bottom: 10px
+
+            &:before
+              content: "-"
+
+          .woocommerce-product-details__short-description
+            strong
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 600
+              font-size: 20px
+              color: $black
+            p
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 400
+              font-size: 16px
+              color: $black
+              margin: 16px 0 20px 0
+
+          .produc-info
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 600
+            font-size: 14px
+            line-height: 150%
+            text-decoration-line: underline
+            color: $black
+
+          .produc-status
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 400
+            font-size: 18px
+            color: $vert-fonce

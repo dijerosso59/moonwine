@@ -33,33 +33,78 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
+    <section class="single-product_desc">
+        <div class="container">
+            <div class="custom-flex">
+                <?php
+                /**
+                 * Hook: woocommerce_before_single_product_summary.
+                 *
+                 * @hooked woocommerce_show_product_sale_flash - 10
+                 * @hooked woocommerce_show_product_images - 20
+                 */
+                do_action( 'woocommerce_before_single_product_summary' );
+                ?>
+                <div class="summary entry-summary">
+                    <?php
+                    /**
+                     * Hook: woocommerce_single_product_summary.
+                     *
+                     * x @hooked woocommerce_template_single_title - 5
+                     * x @hooked woocommerce_template_single_rating - 10
+                     * x @hooked woocommerce_template_single_price - 10
+                     * x @hooked woocommerce_template_single_excerpt - 20
+                     * x @hooked woocommerce_template_single_add_to_cart - 30
+                     * x @hooked woocommerce_template_single_meta - 40
+                     * x @hooked woocommerce_template_single_sharing - 50
+                     * @hooked WC_Structured_Data::generate_product_data() - 60
+                     */
+                    ?>
 
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
-	</div>
+                    <div class="custom-flex">
+                        <div class="custom-flex_column">
+                            <div>
+                                <p class="years_cuve"><?php the_field( 'annee_de_la_cuvee' ); ?></p>
+                                <?php wc_get_template( 'single-product/title.php' ); ?>
+                            </div>
+                            <?php wc_get_template( 'single-product/meta.php' ); ?>
+                            <?php wc_get_template( 'single-product/short-description.php' ); ?>
+                            <a href="#" class="produc-info">Voir toutes les informations</a>
+                        </div>
+                        <div class="custom-flex_column">
+                            <p class="produc-status"><?= $product->get_availability()['availability'] ?></p>
+                            <div class="product-price">
+                                <div class="product-price_abonne">
+                                    <p class="product-price_abonne_price">17,00 €</p>
+                                    <p class="product-price_abonne_title">Prix abonné</p>
+                                </div>
+                                <div class="product-price_public">
+                                    <?php wc_get_template( 'single-product/price.php' ); ?>
+                                    <p class="product-price_abonne_title">Prix public</p>
+                                </div>
+                                <div></div>
+                            </div>
+                            <?php wc_get_template( 'single-product/add-to-cart/simple.php' ); ?>
+                        </div>
+                    </div>
+
+                    <?php
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
+                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
+                    do_action( 'woocommerce_single_product_summary' );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
 	<?php
 	/**

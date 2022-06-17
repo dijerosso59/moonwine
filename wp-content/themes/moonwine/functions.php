@@ -1,7 +1,8 @@
 <?php
 
 // Fonction indiquant ce que mon thème supporte
-function luca_supports () {
+function luca_supports()
+{
 
     // Titre dynamique dans le header
     add_theme_support('title-tag');
@@ -22,9 +23,10 @@ function luca_supports () {
 }
 
 // Fonction ajout assets CSS et JS
-function luca_assets () {
+function luca_assets()
+{
 
-    wp_register_style('splide.css',  get_template_directory_uri() . '/node_modules/@splidejs/splide/dist/css/splide.min.css');
+    wp_register_style('splide.css', get_template_directory_uri() . '/node_modules/@splidejs/splide/dist/css/splide.min.css');
 
     wp_register_script('splide.js', get_template_directory_uri() . '/node_modules/@splidejs/splide/dist/js/splide.min.js', [], false, true);
 
@@ -36,19 +38,22 @@ function luca_assets () {
 }
 
 // Fonction ajout class li menu
-function luca_class_menu_li ($classes) {
+function luca_class_menu_li($classes)
+{
     $classes[] = 'luca-li-classs';
     return $classes;
 }
 
 // Fonction ajout class a menu
-function luca_class_menu_a ($attrs) {
+function luca_class_menu_a($attrs)
+{
     $attrs['class'] = 'luca-a-class';
     return $attrs;
 }
 
 // Fonction qui agit sur les éléments de la pagination
-function luca_pagination () {
+function luca_pagination()
+{
 
     // Récupère la pagination dans $pagination
     $pagination = paginate_links(['type' => 'array']);
@@ -67,7 +72,7 @@ function luca_pagination () {
         if ($active) {
             $class = "p-2 bg-white border border-gray-200 text-white bg-blue-600 rounded";
         }
-        echo '<li class="'.$class.'">';
+        echo '<li class="' . $class . '">';
         echo str_replace('page-numbers', 'luca-a-class', $page);
         echo '</li>';
     }
@@ -75,7 +80,8 @@ function luca_pagination () {
     echo '</nav>';
 }
 
-function luca_register_widget () {
+function luca_register_widget()
+{
     register_sidebar([
         'id' => 'menu',
         'name' => 'Widget Menu',
@@ -87,9 +93,10 @@ function luca_register_widget () {
 }
 
 /* Autoriser les fichiers SVG */
-function wpc_mime_types($mimes) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
+function wpc_mime_types($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
 }
 
 function ur_theme_start_session()
@@ -97,7 +104,6 @@ function ur_theme_start_session()
     if (!session_id())
         session_start();
 }
-
 
 
 add_action("init", "ur_theme_start_session", 1);
@@ -118,20 +124,21 @@ add_filter('nav_menu_link_attributes', 'luca_class_menu_a');
 
 add_filter('upload_mimes', 'wpc_mime_types');
 
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 /**
  * Show cart contents / total Ajax
  */
-add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
-function woocommerce_header_add_to_cart_fragment( $fragments ) {
+function woocommerce_header_add_to_cart_fragment($fragments)
+{
     global $woocommerce;
 
     ob_start(); ?>
-    <a class="" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+    <a class="" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart'); ?>">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/shopping-bag.svg" alt="">
-        <span class="cart-contents"><?php echo sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span>
+        <span class="cart-contents"><?php echo sprintf(_n('%d', '%d', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
         <p class="prenav-search_label_text">Mon panier</p>
     </a>
     <?php
@@ -139,10 +146,11 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
     return $fragments;
 }
 
-add_theme_support( 'custom-logo' );
+add_theme_support('custom-logo');
 
-add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
-function form_submit_button( $button, $form ) {
+add_filter('gform_submit_button', 'form_submit_button', 10, 2);
+function form_submit_button($button, $form)
+{
     return "<button id='gform_submit_button_{$form['id']}'>
                 <svg viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path d='M3.99237 2.18876C4.31728 1.95506 4.75043 1.93688 5.09387 2.14251L20.1251 11.1425C20.427 11.3232 20.6116 11.6487 20.6116 12C20.6116 12.3513 20.427 12.6768 20.1251 12.8575L5.09387 21.8575C4.75043 22.0631 4.31728 22.0449 3.99237 21.8112C3.66746 21.5775 3.5132 21.1732 3.60008 20.7831L5.33325 13L10.5928 13C11.1451 13 11.5928 12.5523 11.5928 12C11.5928 11.4477 11.1451 11 10.5928 11L5.33325 11L3.60008 3.21693C3.5132 2.82677 3.66746 2.42246 3.99237 2.18876Z' fill='white'/>
@@ -150,3 +158,17 @@ function form_submit_button( $button, $form ) {
             </button>
     ";
 }
+
+add_filter('woocommerce_get_availability', function ($availability, $_product) {
+
+    if ($_product->is_in_stock()) {
+        $availability['availability'] = __('En stock');
+    }
+
+    if (!$_product->is_in_stock()) {
+        $availability['availability'] = __('Rupture de stock');
+    }
+
+    return $availability;
+}, 1, 2);
+
