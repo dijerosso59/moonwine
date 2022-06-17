@@ -49,11 +49,23 @@
         height: 650px
         background: $beige-clair
         padding: 60px
+        position: relative
+        z-index: 0
+
+        &:before
+          content: url("assets/img/zizag2.png")
+          width: auto
+          height: auto
+          position: absolute
+          top: 0
+          left: 0
 
         .custom-flex
-          align-items: stretch
+          align-items: center
           justify-content: space-between
           display: flex
+          position: relative
+          z-index: 1
 
           &_column
             width: 50%
@@ -137,6 +149,7 @@
 
           .product-price
             display: flex
+            justify-content: space-between
             margin-top: 16px
 
             &_abonne
@@ -178,7 +191,6 @@
               margin-top: 8px
               color: $black
 
-
           .product-quantity
             margin: 30px 0 0 0
 
@@ -201,7 +213,10 @@
                 align-items: center
                 font-size: 32px
 
-
+            .btn
+              width: 100%
+              border: 0
+              cursor: pointer
 
             .number-input
               display: flex
@@ -222,5 +237,117 @@
                 &::-webkit-inner-spin-button,
                 &::-webkit-outer-spin-button
                   -webkit-appearance: none
+          .product-info
+            margin: 20px 0 0 0
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+            .product-info_paiement,.product-info_livraison
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 500
+              font-size: 12px
+              color: $black
+              display: flex
+              align-items: center
+              justify-content: center
+
+              svg
+                margin-right: 20px
+          hr
+            margin: 20px 0
+          .product-livraison
+            &_title
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 14px
+                color: $black
+                margin-bottom: 16px
+            &_column
+              width: 100%
+              display: flex
+              justify-content: space-between
+              align-items: center
+              margin-bottom: 10px
+            &_price
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 500
+              font-size: 12px
+              color: $black
+            &_delay
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 500
+              font-size: 12px
+              color: $orange
+
+  .product-composition
+    &--content
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      &_column
+
+        &:first-child
+          width: 60%
+          margin-right: 50px
+
+          .single-toggle-label
+            width: 100%
+            max-width: 686px
+            height: 72px
+            box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.05))
+            padding: 20px
+            display: flex
+            align-items: center
+
+            &:after
+              border-left: 2px solid $black
+              border-bottom: 2px solid $black
+              height: 15px
+              width: 15px
+              top: 32px
+              right: 25px
+
+          .card-text
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 600
+            font-size: 20px
+            color: $black
+
+        &:last-child
+          width: 40%
+          background: $vert-clair
+          padding: 32px 24px
+
+          .product-composition--content_column_title
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 600
+            font-size: 20px
+            color: $black
+
+          .list-item
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 600
+            font-size: 16px
+            color: $black
+            margin-top: 20px
+
+            .items
+              font-weight: 400
+              list-style-type: disc
+              margin-left: 20px
+              line-height: 1.2
+
+
+
+
 
 

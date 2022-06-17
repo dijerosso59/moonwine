@@ -1,5 +1,5 @@
-        <footer class="container">
-            <div class="contenu">
+        <footer>
+            <div class="container">
                 <div class="flex">
                     <div class="space">
                         <div class="socials">
@@ -31,56 +31,54 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="newsletter">
+                        <div class="newsletter-footer">
+                            <h2>Inscrivez-vous à notre Newsletter</h2>
+                            <p>Abonnez- vous à notre newsletter pour recevoir nos offres en avant-première et toute
+                                notre actualité ! Au programme : des interviews inspirants des artistes de nos boxes
+                                et des témoignages engagés de nos vignerons.</p>
                             <?= do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
                         </div>
                     </div>
                     <div class="footer-menu">
                         <div>
                             <h3>Services</h3>
-                            <ul>
-                                <li>
-                                    <a href="">Accueil</a>
-                                </li>
-                                <li>
-                                    <a href="">Abonnements</a>
-                                </li>
-                                <li>
-                                    <a href="">Cave à vin</a>
-                                </li>
-                                <li>
-                                    <a href="">Carte cadeau</a>
-                                </li>
-                                <li>
-                                    <a href="">A propos</a>
-                                </li>
-                                <li>
-                                    <a href="">Blog</a>
-                                </li>
-                            </ul>
+                            <?php
+
+                                wp_nav_menu(
+                                    array(
+                                        'container'  => '',
+                                        'theme_location' => 'footer-1',
+                                        'name' => 'footer-col-1'
+                                    )
+                                );
+
+                            ?>
                         </div>
                         <div>
-                            <h3>Services</h3>
-                            <ul>
-                                <li>
-                                    <a href="">Accueil</a>
-                                </li>
-                                <li>
-                                    <a href="">Abonnements</a>
-                                </li>
-                                <li>
-                                    <a href="">Cave à vin</a>
-                                </li>
-                                <li>
-                                    <a href="">Carte cadeau</a>
-                                </li>
-                                <li>
-                                    <a href="">A propos</a>
-                                </li>
-                                <li>
-                                    <a href="">Blog</a>
-                                </li>
-                            </ul>
+                            <h3>A propos</h3>
+                            <?php
+
+                                wp_nav_menu(
+                                    array(
+                                        'container'  => '',
+                                        'theme_location' => 'footer-2',
+                                    )
+                                );
+
+                            ?>
+                        </div>
+                        <div>
+                            <h3>Légal</h3>
+                            <?php
+
+                                wp_nav_menu(
+                                    array(
+                                        'container'  => '',
+                                        'theme_location' => 'footer-3',
+                                    )
+                                );
+
+                            ?>
                         </div>
                     </div>
                 </div>

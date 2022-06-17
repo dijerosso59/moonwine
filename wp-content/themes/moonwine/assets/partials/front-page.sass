@@ -1,0 +1,200 @@
+.reassurance
+    background-color: $beige
+    color: $vert-fonce
+    padding: 2rem 1rem
+
+    .grid
+        display: grid
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+        gap: 1.5rem
+
+        h1
+            font-weight: bold
+            font-size: 18px
+            line-height: 21px
+            margin-bottom: 0.5rem
+            position: relative
+            width: max-content
+            z-index: 10
+
+            &:after
+                content: ""
+                width: 100%
+                height: 6px
+                background-color: $orange
+                position: absolute
+                left: 0
+                bottom: 0.5px
+                z-index: -1
+
+        p
+            font-size: 12px
+
+.about
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 2rem
+
+    h1
+        font-weight: 700
+        font-size: 20px
+        color: $vert-fonce
+        line-height: 30px
+
+    p
+        color: $black-less
+        font-weight: 400
+        font-size: 18px
+        line-height: 27px
+        margin: 2rem 0
+        position: relative
+
+        &::before
+            content: ""
+            background: url(assets/img/front-page/about/circle-left.svg)
+            position: absolute
+            width: 200px
+            height: 130px
+            bottom: 0
+            left: -2rem
+            background-repeat: no-repeat
+
+        &::after
+            content: ""
+            background: url(assets/img/front-page/about/circle-right.svg)
+            position: absolute
+            width: 200px
+            height: 130px
+            top: 0
+            right: -10rem
+            background-repeat: no-repeat
+
+.newsletter
+    background-color: $beige-clair
+    position: relative
+    padding: 20px
+
+    &::after
+        content: ""
+        background: url(assets/img/front-page/newsletter/circle-newsletter.svg)
+        position: absolute
+        width: 200px
+        height: 130px
+        top: -3rem
+        right: -10rem
+        background-repeat: no-repeat
+
+    .flex
+        display: flex
+        flex-direction: column
+
+        h1
+            font-weight: 600
+            font-size: 34px
+            color: $vert-fonce
+            
+        p
+            font-weight: 400
+            font-size: 16px
+            line-height: 24px
+            color: $black-less
+            margin: 1rem 0
+
+        form
+            position: relative
+
+            .mail
+                input
+                    border: 1px solid $beige
+                    border-radius: 10px
+                    padding-left: 1rem !important
+                    background-color: $beige-clair
+
+            .gform_footer.top_label
+                margin: 0
+                padding: 0
+
+            button
+                border: none
+                background-color: $beige
+                border-top-right-radius: 10px
+                border-bottom-right-radius: 10px
+                position: absolute
+                bottom: 0
+                right: 0
+                margin-bottom: 0 !important
+                width: 25%
+                height: 48px                   
+
+                &:hover
+                    cursor: pointer
+
+                svg
+                    width: 24px
+
+
+
+@media (min-width: 768px)
+    .reassurance
+        padding: 3rem 1rem
+
+        .grid
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+            margin: 0 $largeur-base
+
+            h1
+                margin-bottom: 1.5rem
+
+    .about
+        flex-direction: row
+        justify-content: center
+        margin: 0 $largeur-base
+        gap: 2rem
+        padding: 10rem 0
+        
+        .border
+            background: $black
+            width: 2px
+            height: 260px
+
+        h1
+            font-size: 34px
+            line-height: 51px
+
+        p
+
+            &::before, &::after
+                content: none
+
+        .btn
+            width: 19rem
+
+    .newsletter
+        padding: 3rem 20px
+
+        &::after
+            background: url(assets/img/front-page/newsletter/circle-newsletter-home.svg)
+            width: 130px
+            height: 206px
+            top: -4rem
+            right: 0rem
+
+        .flex
+            flex-direction: row
+            align-items: flex-end
+            margin: 0 $largeur-base
+            gap: 5rem
+
+            .descr, .form
+                width: 50%
+
+            form
+                position: relative
+
+                .mail
+                    input
+                        padding: 1rem !important
+
+                button
+                    height: 51.25px

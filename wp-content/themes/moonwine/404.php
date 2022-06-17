@@ -4,15 +4,13 @@
 
 <section class="error">
     <div>
-        <img src="<?= get_template_directory_uri(); ?>/assets/img/bouteille.png" alt="Bouteille">
+        <img src="<?= get_template_directory_uri(); ?>/assets/img/404/bouteille.png" alt="Bouteille">
     </div>
 
     <div>
         <h1>404</h1>
         <p>La page que vous recherchez est introuvable</p>
-        <a class="btn" href="<?php echo get_site_url(); ?>">
-            Revenir à l'accueil
-        </a>
+        <?php $text = "Revenir à l'accueil"; $link = get_site_url(); include 'include/button.php'; ?>
     </div>
 </section>
 

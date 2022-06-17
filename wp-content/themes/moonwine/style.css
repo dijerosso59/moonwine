@@ -336,6 +336,18 @@ main {
   z-index: 0;
 }
 
+.btn {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 20px;
+  background-color: #D9E0C0;
+  color: #343434;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media (max-width: 991px) {
   .prenav {
     background-color: #FAF8F1;
@@ -695,8 +707,7 @@ main {
 
 footer {
   background-color: #FAF8F1;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding: 2rem 20px !important;
 }
 footer a {
   display: block;
@@ -744,57 +755,58 @@ footer .flex .socials svg {
 footer .flex .socials svg path:hover {
   fill: #ADADAD;
 }
-footer .flex .newsletter {
-  text-align: center;
-}
-footer .flex .newsletter h2 {
-  color: #114635;
-}
-footer .flex .newsletter p {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-}
-footer .flex .newsletter .content div > :not([hidden]) ~ :not([hidden]) {
+footer .flex .newsletter-footer > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * (1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
-footer .flex .newsletter form {
+footer .flex .newsletter-footer {
+  text-align: center;
+}
+footer .flex .newsletter-footer h2 {
+  color: #114635;
+}
+footer .flex .newsletter-footer p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+footer .flex .newsletter-footer form {
   position: relative;
 }
-footer .flex .newsletter form .mail input {
+footer .flex .newsletter-footer form .mail input {
   border: 1px solid #E2DAC3;
   border-radius: 10px;
   padding-left: 1rem !important;
-  margin-top: 1.5rem;
+  background-color: #FAF8F1;
 }
-footer .flex .newsletter form .gform_footer.top_label {
+footer .flex .newsletter-footer form .gform_footer.top_label {
   margin: 0;
   padding: 0;
 }
-footer .flex .newsletter form button {
+footer .flex .newsletter-footer form button {
   border: none;
   background-color: #E2DAC3;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   position: absolute;
-  top: 9.3rem;
+  bottom: 0;
   right: 0;
   margin-bottom: 0 !important;
   width: 25%;
   height: 48px;
 }
-footer .flex .newsletter form button:hover {
+footer .flex .newsletter-footer form button:hover {
   cursor: pointer;
 }
-footer .flex .newsletter form button svg {
+footer .flex .newsletter-footer form button svg {
   width: 24px;
 }
 footer .flex .footer-menu {
   text-align: center;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 4rem;
 }
 footer .flex .footer-menu h3 {
@@ -807,9 +819,6 @@ footer .flex .footer-menu ul > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * (1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-footer .flex .footer-menu ul {
-  list-style: none;
 }
 footer .flex .footer-menu ul a {
   font-weight: 600;
@@ -835,12 +844,14 @@ footer .flex .footer-menu ul a:hover:after {
 }
 footer hr {
   background: #343434;
+  margin: 20px 0;
 }
 footer .copyright {
   text-align: center;
   font-weight: 500;
   font-size: 12px;
   color: #343434;
+  margin: 20px 0;
 }
 footer .alcool {
   text-transform: uppercase;
@@ -848,6 +859,7 @@ footer .alcool {
   border: 6px solid #B83D42;
   background: white;
   padding: 1rem;
+  margin: 20px 0;
 }
 footer .alcool h1 {
   font-weight: 800;
@@ -904,22 +916,21 @@ footer .loi .detail {
     justify-content: flex-start;
     gap: 2rem;
   }
-  footer .flex .space .newsletter {
+  footer .flex .space .newsletter-footer {
     text-align: left;
   }
-  footer .flex .space .newsletter .mail input {
+  footer .flex .space .newsletter-footer .mail input {
     padding: 1rem !important;
     margin-top: 0;
   }
-  footer .flex .space .newsletter button {
+  footer .flex .space .newsletter-footer button {
     height: 51.25px;
-    top: 7.8rem;
   }
   footer .flex .footer-menu {
     flex-direction: row;
     margin-top: 5rem;
     text-align: left;
-    gap: 8rem;
+    gap: 5rem;
   }
   footer .flex .footer-menu ul a {
     margin-left: 0;
@@ -953,6 +964,7 @@ footer .loi .detail {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 50vh;
 }
 .error h1 {
   color: #114635;
@@ -961,8 +973,24 @@ footer .loi .detail {
 .error p {
   font-weight: 700;
   font-size: 25px;
+  margin: 1rem 0;
+}
+.error a {
+  width: 14rem;
 }
 
+@media (min-width: 768px) {
+  .error {
+    min-height: 75vh;
+  }
+  .error h1 {
+    font-size: 200px;
+  }
+  .error p {
+    font-size: 30px;
+    width: 400px;
+  }
+}
 .single-toggle-label {
   position: relative;
 }
@@ -1067,11 +1095,23 @@ footer .loi .detail {
   height: 650px;
   background: #FAF8F1;
   padding: 60px;
+  position: relative;
+  z-index: 0;
+}
+.single-product .single-product_desc .custom-flex .summary:before {
+  content: url("assets/img/zizag2.png");
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex {
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex_column {
   width: 50%;
@@ -1158,6 +1198,7 @@ footer .loi .detail {
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-price {
   display: flex;
+  justify-content: space-between;
   margin-top: 16px;
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-price_abonne {
@@ -1223,6 +1264,11 @@ footer .loi .detail {
   align-items: center;
   font-size: 32px;
 }
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .btn {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .number-input {
   display: flex;
 }
@@ -1241,6 +1287,316 @@ footer .loi .detail {
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .number-input input[type=number]::-webkit-inner-spin-button, .single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .number-input input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-info {
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-info .product-info_paiement, .single-product .single-product_desc .custom-flex .summary .custom-flex .product-info .product-info_livraison {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #343434;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-info .product-info_paiement svg, .single-product .single-product_desc .custom-flex .summary .custom-flex .product-info .product-info_livraison svg {
+  margin-right: 20px;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex hr {
+  margin: 20px 0;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-livraison_title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #343434;
+  margin-bottom: 16px;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-livraison_column {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-livraison_price {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #343434;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-livraison_delay {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #DA8953;
+}
+.single-product .product-composition--content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-product .product-composition--content_column:first-child {
+  width: 60%;
+  margin-right: 50px;
+}
+.single-product .product-composition--content_column:first-child .single-toggle-label {
+  width: 100%;
+  max-width: 686px;
+  height: 72px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.single-product .product-composition--content_column:first-child .single-toggle-label:after {
+  border-left: 2px solid #343434;
+  border-bottom: 2px solid #343434;
+  height: 15px;
+  width: 15px;
+  top: 32px;
+  right: 25px;
+}
+.single-product .product-composition--content_column:first-child .card-text {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #343434;
+}
+.single-product .product-composition--content_column:last-child {
+  width: 40%;
+  background: #D9E0C0;
+  padding: 32px 24px;
+}
+.single-product .product-composition--content_column:last-child .product-composition--content_column_title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #343434;
+}
+.single-product .product-composition--content_column:last-child .list-item {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #343434;
+  margin-top: 20px;
+}
+.single-product .product-composition--content_column:last-child .list-item .items {
+  font-weight: 400;
+  list-style-type: disc;
+  margin-left: 20px;
+  line-height: 1.2;
+}
+
+.reassurance {
+  background-color: #E2DAC3;
+  color: #114635;
+  padding: 2rem 1rem;
+}
+.reassurance .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.reassurance .grid h1 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  width: max-content;
+  z-index: 10;
+}
+.reassurance .grid h1:after {
+  content: "";
+  width: 100%;
+  height: 6px;
+  background-color: #DA8953;
+  position: absolute;
+  left: 0;
+  bottom: 0.5px;
+  z-index: -1;
+}
+.reassurance .grid p {
+  font-size: 12px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.about h1 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #114635;
+  line-height: 30px;
+}
+.about p {
+  color: #4D4D4D;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  margin: 2rem 0;
+  position: relative;
+}
+.about p::before {
+  content: "";
+  background: url(assets/img/front-page/about/circle-left.svg);
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  bottom: 0;
+  left: -2rem;
+  background-repeat: no-repeat;
+}
+.about p::after {
+  content: "";
+  background: url(assets/img/front-page/about/circle-right.svg);
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  top: 0;
+  right: -10rem;
+  background-repeat: no-repeat;
+}
+
+.newsletter {
+  background-color: #FAF8F1;
+  position: relative;
+  padding: 20px;
+}
+.newsletter::after {
+  content: "";
+  background: url(assets/img/front-page/newsletter/circle-newsletter.svg);
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  top: -3rem;
+  right: -10rem;
+  background-repeat: no-repeat;
+}
+.newsletter .flex {
+  display: flex;
+  flex-direction: column;
+}
+.newsletter .flex h1 {
+  font-weight: 600;
+  font-size: 34px;
+  color: #114635;
+}
+.newsletter .flex p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4D4D4D;
+  margin: 1rem 0;
+}
+.newsletter .flex form {
+  position: relative;
+}
+.newsletter .flex form .mail input {
+  border: 1px solid #E2DAC3;
+  border-radius: 10px;
+  padding-left: 1rem !important;
+  background-color: #FAF8F1;
+}
+.newsletter .flex form .gform_footer.top_label {
+  margin: 0;
+  padding: 0;
+}
+.newsletter .flex form button {
+  border: none;
+  background-color: #E2DAC3;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 0 !important;
+  width: 25%;
+  height: 48px;
+}
+.newsletter .flex form button:hover {
+  cursor: pointer;
+}
+.newsletter .flex form button svg {
+  width: 24px;
+}
+
+@media (min-width: 768px) {
+  .reassurance {
+    padding: 3rem 1rem;
+  }
+  .reassurance .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0 8.3333333333%;
+  }
+  .reassurance .grid h1 {
+    margin-bottom: 1.5rem;
+  }
+  .about {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 8.3333333333%;
+    gap: 2rem;
+    padding: 10rem 0;
+  }
+  .about .border {
+    background: #343434;
+    width: 2px;
+    height: 260px;
+  }
+  .about h1 {
+    font-size: 34px;
+    line-height: 51px;
+  }
+  .about p::before, .about p::after {
+    content: none;
+  }
+  .about .btn {
+    width: 19rem;
+  }
+  .newsletter {
+    padding: 3rem 20px;
+  }
+  .newsletter::after {
+    background: url(assets/img/front-page/newsletter/circle-newsletter-home.svg);
+    width: 130px;
+    height: 206px;
+    top: -4rem;
+    right: 0rem;
+  }
+  .newsletter .flex {
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 0 8.3333333333%;
+    gap: 5rem;
+  }
+  .newsletter .flex .descr, .newsletter .flex .form {
+    width: 50%;
+  }
+  .newsletter .flex form {
+    position: relative;
+  }
+  .newsletter .flex form .mail input {
+    padding: 1rem !important;
+  }
+  .newsletter .flex form button {
+    height: 51.25px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

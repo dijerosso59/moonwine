@@ -1,7 +1,6 @@
 footer
     background-color: $beige-clair
-    padding-top: 2rem !important
-    padding-bottom: 2rem !important
+    padding: 2rem 20px !important
 
     a
         display: block
@@ -52,7 +51,12 @@ footer
                     &:hover
                         fill: #ADADAD
         
-        .newsletter
+        .newsletter-footer>:not([hidden])~:not([hidden])
+            --tw-space-y-reverse: 0
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+        .newsletter-footer
             text-align: center
 
             h2
@@ -63,11 +67,6 @@ footer
                 font-weight: 500
                 line-height: 18px
 
-            .content div>:not([hidden])~:not([hidden]) 
-                --tw-space-y-reverse: 0
-                margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
-                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
-
             form
                 position: relative
 
@@ -76,7 +75,7 @@ footer
                         border: 1px solid $beige
                         border-radius: 10px
                         padding-left: 1rem !important
-                        margin-top: 1.5rem
+                        background-color: $beige-clair
 
                 .gform_footer.top_label
                     margin: 0
@@ -88,7 +87,7 @@ footer
                     border-top-right-radius: 10px
                     border-bottom-right-radius: 10px
                     position: absolute
-                    top: 9.3rem
+                    bottom: 0
                     right: 0
                     margin-bottom: 0 !important
                     width: 25%
@@ -104,6 +103,7 @@ footer
             text-align: center
             display: flex
             flex-direction: column
+            flex-wrap: wrap
             gap: 4rem
 
             h3
@@ -118,7 +118,6 @@ footer
                 margin-bottom: calc(1rem * var(--tw-space-y-reverse))
 
             ul
-                list-style: none
 
                 a
                     font-weight: 600
@@ -146,12 +145,14 @@ footer
 
     hr
         background: $black
+        margin: 20px 0
 
     .copyright
         text-align: center
         font-weight: 500
         font-size: 12px
         color: $black
+        margin: 20px 0
 
     .alcool
         text-transform: uppercase
@@ -159,6 +160,7 @@ footer
         border: 6px solid #B83D42
         background: white
         padding: 1rem
+        margin: 20px 0
 
         h1
             font-weight: 800
@@ -215,7 +217,7 @@ footer
                         justify-content: flex-start
                         gap: 2rem
 
-                .newsletter
+                .newsletter-footer
                     text-align: left
 
                     .mail
@@ -225,13 +227,12 @@ footer
 
                     button
                         height: 51.25px
-                        top: 7.8rem
 
             .footer-menu
                 flex-direction: row
                 margin-top: 5rem
                 text-align: left
-                gap: 8rem
+                gap: 5rem
 
                 ul
 
