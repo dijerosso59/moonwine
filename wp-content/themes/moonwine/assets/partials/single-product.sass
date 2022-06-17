@@ -7,7 +7,7 @@
       display: flex
 
       .woocommerce-product-gallery
-        width: 49%
+        width: 40%
         display: flex
         align-content: center
         align-items: center
@@ -45,7 +45,7 @@
 
 
       .summary
-        width: 48%
+        width: 58%
         height: 650px
         background: $beige-clair
         padding: 60px
@@ -128,9 +128,99 @@
             text-decoration-line: underline
             color: $black
 
-          .produc-status
+          .product-status
             font-family: 'Raleway'
             font-style: normal
             font-weight: 400
             font-size: 18px
             color: $vert-fonce
+
+          .product-price
+            display: flex
+            margin-top: 16px
+
+            &_abonne
+              display: flex
+              flex-direction: column
+              align-items: flex-start
+              margin-right: 20px
+              &_price
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 32px
+                color: $vert-fonce
+              &_title
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 500
+                font-size: 12px
+                margin-top: 8px
+                color: $black
+
+            .woocommerce-Price-amount
+              display: flex
+              flex-direction: column
+              align-items: flex-start
+
+              bdi,.woocommerce-Price-currencySymbol
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 32px
+                color: $vert-fonce
+
+            .product-price_public_title
+              font-family: 'Raleway'
+              font-style: normal
+              font-weight: 500
+              font-size: 12px
+              margin-top: 8px
+              color: $black
+
+
+          .product-quantity
+            margin: 30px 0 0 0
+
+            .number-input button
+              outline: none
+              -webkit-appearance: none
+              border: none
+
+            &-choice
+              display: flex
+              justify-content: space-between
+              margin: 10px 0 40px 0
+
+              &_up,&_down
+                background: $beige
+                width: 65px
+                height: 54px
+                display: flex
+                justify-content: center
+                align-items: center
+                font-size: 32px
+
+
+
+            .number-input
+              display: flex
+
+              input[type=number]
+                -webkit-appearance: textfield
+                -moz-appearance: textfield
+                appearance: textfield
+                font-family: sans-serif
+                max-width: 120px
+                padding: .5rem
+                border: 2px solid $beige
+                font-size: 2rem
+                height: 54px
+                font-weight: bold
+                text-align: center
+
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button
+                  -webkit-appearance: none
+
+

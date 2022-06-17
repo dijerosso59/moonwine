@@ -72,7 +72,7 @@ if ( post_password_required() ) {
                             <a href="#" class="produc-info">Voir toutes les informations</a>
                         </div>
                         <div class="custom-flex_column">
-                            <p class="produc-status"><?= $product->get_availability()['availability'] ?></p>
+                            <p class="product-status"><?= $product->get_availability()['availability'] ?></p>
                             <div class="product-price">
                                 <div class="product-price_abonne">
                                     <p class="product-price_abonne_price">17,00 €</p>
@@ -80,11 +80,18 @@ if ( post_password_required() ) {
                                 </div>
                                 <div class="product-price_public">
                                     <?php wc_get_template( 'single-product/price.php' ); ?>
-                                    <p class="product-price_abonne_title">Prix public</p>
+                                    <p class="product-price_public_title">Prix public</p>
                                 </div>
                                 <div></div>
                             </div>
-                            <?php wc_get_template( 'single-product/add-to-cart/simple.php' ); ?>
+                            <div class="product-quantity">
+                                <p class="product-quantity_title">Quantité</p>
+                                <?php wc_get_template( 'single-product/add-to-cart/simple.php' ); ?>
+                            </div>
+
+                            <div class="product-info">
+                                
+                            </div>
                         </div>
                     </div>
 
