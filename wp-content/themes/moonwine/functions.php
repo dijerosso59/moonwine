@@ -128,13 +128,25 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
     global $woocommerce;
 
-    ob_start();
-
-    ?>
-    <a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> – <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+    ob_start(); ?>
+    <a class="" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/shopping-bag.svg" alt="">
+        <span class="cart-contents"><?php echo sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span>
+        <p class="prenav-search_label_text">Mon panier</p>
+    </a>
     <?php
     $fragments['a.cart-customlocation'] = ob_get_clean();
     return $fragments;
 }
 
 add_theme_support( 'custom-logo' );
+
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
+function form_submit_button( $button, $form ) {
+    return "<button id='gform_submit_button_{$form['id']}'>
+                <svg viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M3.99237 2.18876C4.31728 1.95506 4.75043 1.93688 5.09387 2.14251L20.1251 11.1425C20.427 11.3232 20.6116 11.6487 20.6116 12C20.6116 12.3513 20.427 12.6768 20.1251 12.8575L5.09387 21.8575C4.75043 22.0631 4.31728 22.0449 3.99237 21.8112C3.66746 21.5775 3.5132 21.1732 3.60008 20.7831L5.33325 13L10.5928 13C11.1451 13 11.5928 12.5523 11.5928 12C11.5928 11.4477 11.1451 11 10.5928 11L5.33325 11L3.60008 3.21693C3.5132 2.82677 3.66746 2.42246 3.99237 2.18876Z' fill='white'/>
+                </svg>
+            </button>
+    ";
+}

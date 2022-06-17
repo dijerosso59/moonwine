@@ -1,0 +1,34 @@
+.single-toggle
+  &-label
+    position: relative
+    &:after
+      border-left: 4px solid #e5f0fc
+      border-bottom: 4px solid #e5f0fc
+      height: 15px
+      width: 15px
+      transform: rotate(-45deg)
+      position: absolute
+      right: 5px
+      top: 0
+      content: ''
+      display: inline-block
+      vertical-align: middle
+
+  &-input
+    display: none
+    ~
+      .single-toggle
+        &-content
+          display: none
+
+    &:checked
+      +
+        .single-toggle
+          &-label:after
+            content: ''
+            transform: rotate(135deg)
+            top: 10px
+      ~
+        .single-toggle
+          &-content
+            display: block

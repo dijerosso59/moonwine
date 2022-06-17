@@ -1,0 +1,264 @@
+footer
+    background-color: $beige-clair
+    padding-top: 2rem !important
+    padding-bottom: 2rem !important
+
+    a
+        display: block
+        text-decoration: none
+
+    h2
+        font-size: 18px
+        font-weight: 600
+
+    .contenu>:not([hidden])~:not([hidden])
+        --tw-space-y-reverse: 0
+        margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)))
+        margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+
+    .flex
+        display: flex
+        flex-direction: column
+        gap: 5rem
+
+        .space>:not([hidden])~:not([hidden]) 
+            --tw-space-y-reverse: 0
+            margin-top: calc(5rem * calc(1 - var(--tw-space-y-reverse)))
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+        .socials>:not([hidden])~:not([hidden]) 
+            --tw-space-y-reverse: 0
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+        .socials
+            text-align: center
+
+            h2
+                color: $black
+
+            div
+                display: flex
+                justify-content: center
+                gap: 1rem
+
+            svg
+                width: 30px
+                transition-duration: 500ms
+
+                path
+
+                    &:hover
+                        fill: #ADADAD
+        
+        .newsletter
+            text-align: center
+
+            h2
+                color: $vert-fonce
+
+            p
+                font-size: 12px
+                font-weight: 500
+                line-height: 18px
+
+            .content div>:not([hidden])~:not([hidden]) 
+                --tw-space-y-reverse: 0
+                margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+            form
+                position: relative
+
+                .mail
+                    input
+                        border: 1px solid $beige
+                        border-radius: 10px
+                        padding-left: 1rem !important
+                        margin-top: 1.5rem
+
+                .gform_footer.top_label
+                    margin: 0
+                    padding: 0
+
+                button
+                    border: none
+                    background-color: $beige
+                    border-top-right-radius: 10px
+                    border-bottom-right-radius: 10px
+                    position: absolute
+                    top: 9.3rem
+                    right: 0
+                    margin-bottom: 0 !important
+                    width: 25%
+                    height: 48px
+
+                    &:hover
+                        cursor: pointer
+
+                    svg
+                        width: 24px
+
+        .footer-menu
+            text-align: center
+            display: flex
+            flex-direction: column
+            gap: 4rem
+
+            h3
+                color: #C4C4C4
+                font-weight: 500
+                font-size: 14px
+                margin-bottom: 1.5rem
+
+            ul>:not([hidden])~:not([hidden])
+                --tw-space-y-reverse: 0
+                margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))
+                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+            ul
+                list-style: none
+
+                a
+                    font-weight: 600
+                    font-size: 14px
+                    color: $black
+                    position: relative
+                    width: max-content
+                    margin-right: auto
+                    margin-left: auto
+
+                    &:after
+                        content: ""
+                        position: absolute
+                        width: 0
+                        left: 0
+                        bottom: -3px
+                        height: 1px
+                        background: black
+                        transition-duration: 500ms
+
+
+                    &:hover
+                        &:after
+                            width: 100%
+
+    hr
+        background: $black
+
+    .copyright
+        text-align: center
+        font-weight: 500
+        font-size: 12px
+        color: $black
+
+    .alcool
+        text-transform: uppercase
+        text-align: center
+        border: 6px solid #B83D42
+        background: white
+        padding: 1rem
+
+        h1
+            font-weight: 800
+            font-size: 12px
+
+    .loi
+        display: flex
+        flex-direction: column
+        border: 6px solid black
+        padding: 1rem
+        text-align: center
+        background: white
+        gap: 1rem
+        align-items: center
+
+        img
+            width: 30%
+
+        h2
+            font-weight: 900
+            font-size: 14px
+
+        p
+            font-size: 14px
+
+        .detail
+            margin: 1rem 0
+
+@media (min-width: 768px)
+
+    footer
+        padding-top: 4rem !important
+
+        .contenu
+            margin: 0 $largeur-base
+
+        .flex
+            flex-direction: row
+            justify-content: space-between
+
+            .space>:not([hidden])~:not([hidden]) 
+                margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)))
+
+            .space
+                width: 33.33%
+
+                .socials
+                    text-align: left
+
+                    .logo
+                        margin-bottom: 2.5rem
+
+                    div
+                        justify-content: flex-start
+                        gap: 2rem
+
+                .newsletter
+                    text-align: left
+
+                    .mail
+                        input
+                            padding: 1rem !important
+                            margin-top: 0
+
+                    button
+                        height: 51.25px
+                        top: 7.8rem
+
+            .footer-menu
+                flex-direction: row
+                margin-top: 5rem
+                text-align: left
+                gap: 8rem
+
+                ul
+
+                    a
+                        margin-left: 0
+
+        .alcool
+            h1
+                font-size: 18px
+
+        .loi
+            flex-direction: row
+            text-align: left
+
+            div
+                width: 100%
+
+            h2
+                font-size: 21px
+
+            img
+                width: 10%
+
+            .detail
+                margin-top: 0.5rem
+                margin-bottom: 1rem
+                font-size: 17px
+
+            .code
+                text-align: right

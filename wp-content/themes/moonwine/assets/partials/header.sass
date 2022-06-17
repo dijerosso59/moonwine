@@ -1,80 +1,101 @@
-.header
-  height: auto
-  position: sticky
-  padding-top: 70px
-  top: -70px
-  z-index: 5
+.prenav
   @media (max-width: 991px)
-    top: -5px
-    padding-top: 5px
+    background-color: $beige-clair
 
-  .navbar
-    background: $white
-    @include flex
-    height: 70px
-    width: 100%
-    &-header
+  &-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: $white
+    height: 95px
+    @media (max-width: 991px)
+      background-color: $beige-clair
+
+    .prenavbar
       @include flex
+      gap: 40px
+      @media (max-width: 767px)
+        gap: 20px
 
-    &-nav
-      align-items: center
-      display: flex
-      justify-content: center
-      transition: none
-      width: 100%
-      @media (max-width: 991px)
-        align-items: center
+
+      .navigation
         background: $white
-        flex-direction: column
-        height: 100vh
-        justify-content: start
-        position: fixed
-        padding: 100px 0 0 0
-        margin: 0
-        top: 120%
-        left: 0
-        width: 100%
-        z-index: 1
-        overflow-y: auto
+        @include flex
+        gap: 40px
+        @media (max-width: 991px)
+          background-color: $beige-clair
+        @media (max-width: 767px)
+          gap: 20px
 
-      .menu-item
-        margin: 0 65px 0 0
+        .cart-contents
+          background: red
+          color: $white
+          border-radius: 50%
+          padding: 0 5px
+          position: absolute
+          top: 0
+          right: 15px
+          @media (max-width: 767px)
+            top: -5px
+            right: -10px
 
-        @media (max-width: 1200px)
-          margin: 0 25px 0 0
+      .prenav-search
+        display: flex
+        overflow: hidden
+        position: relative
+        justify-content: flex-end
+        width: 500px
 
         @media (max-width: 991px)
-          margin: 0 0 60px 0
-          position: relative
-          text-align: center
-          width: 100%
-          &:before
-            background: $black
-            content: ""
-            width: 100%
-            position: absolute
-            height: 2px
-            bottom: -25px
-            right: 0
-          &:last-child:before
-            display: none
-        a
-          color: $black
-          font-family: Roboto
-          font-size: 1em
-          line-height: 1.375em
+          display: none
 
-    &-header
-      width: 100%
-      margin: 0 auto
-      @media (max-width: 991px)
-        width: 100%
+        .aws-container
+          position: relative
+          right: -500%
+
+          .aws-search-field
+            border: 1px solid $beige
+            border-radius: 10px 0 0 10px !important
+
+          .aws-search-form
+            min-width: 350px
+
+          .aws-form-btn
+            background: $beige
+            border-radius: 0 10px 10px 0 !important
+
+        .prenav-search_label
+          display: flex
+          align-items: center
+          flex-direction: column
+          cursor: pointer
 
       .custom-logo
         position: relative
         z-index: 2
+        margin: 0 20px 0 0
 
-    &-toggle
+      a
+        display: flex
+        align-items: center
+        flex-direction: column
+        position: relative
+
+      .prenav-search_label_text
+        cursor: pointer
+        font-weight: 500
+        font-size: 14px
+        color: #4D4D4D
+
+        @media (max-width: 767px)
+          display: none
+
+      img
+        margin: 0 0 10px
+        @media (max-width: 767px)
+          margin: 0
+
+    .navbar-toggle
       display: none
 
       @media (max-width: 991px)
@@ -90,6 +111,7 @@
         z-index: 10
         right: 0
         top: 0
+
       span
         border-radius: 2px
         position: absolute
@@ -98,7 +120,8 @@
         width: 100%
         background-color: $black
         transform: rotate(0)
-        transition: all .2s cubic-bezier(.895,.03,.685,.22)
+        transition: all .2s cubic-bezier(.895, .03, .685, .22)
+
         &.one
           top: 0
 
@@ -119,12 +142,164 @@
         .three
           transform: translateY(-10px) rotate(-45deg)
 
+.header
+  height: auto
+  position: sticky
+  z-index: 1
+  top: 0
+
+  .navbar
+    z-index: 5
+    background: $beige-clair
+    @include flex
+    height: 75px
+    width: 100%
+
+    &-header
+      @include flex
+
+    &-nav
+      align-items: center
+      display: flex
+      justify-content: center
+      transition: none
+      gap: 50px
+      width: 100%
+      @media (max-width: 991px)
+        align-items: center
+        background: $white
+        flex-direction: column
+        height: 100vh
+        justify-content: start
+        position: fixed
+        padding: 20px 0 0 0
+        margin: 0
+        top: 120%
+        left: 0
+        width: 100%
+        z-index: 1
+        overflow-y: auto
+
+      .menu-item
+        position: relative
+
+        &:before
+          background: $black
+          height: 2px
+          content: ''
+          position: absolute
+          width: 0
+          bottom: 0
+          transition: 0.3s ease-in-out
+
+        &:hover
+          &:before
+            width: 100%
+
+        &:nth-child(4)
+          align-items: center
+          position: relative
+          transition: 1s
+
+          &:after
+            border-left: 2px solid $black
+            border-bottom: 2px solid $black
+            content: ''
+            display: inline-block
+            transform: rotate(-45deg)
+            margin: 0 0 0 10px
+            height: 8px
+            width: 8px
+            position: absolute
+            top: 3px
+            @media (max-width: 991px)
+              right: 38%
+
+
+          &:hover
+            &:after
+              transform: rotate(135deg)
+              top: 8px
+
+            .sub-menu
+              max-height: 250px !important
+
+
+        .sub-menu
+          background: $beige-clair
+          position: absolute
+          max-height: 0
+          min-width: 200px
+          overflow: hidden
+          margin: 0 0 0 -20px
+          @media (max-width: 991px)
+            position: initial
+            background: $white
+            margin: 0
+
+          .menu-item
+            padding: 10px 20px
+            &:first-child
+              padding: 30px 20px 10px
+            &:after
+              display: none
+            &:before
+              display: none
+
+
+        @media (max-width: 991px)
+          position: relative
+          text-align: center
+          width: 100%
+          &:before
+            background: $black
+            content: ""
+            width: 100%
+            position: absolute
+            height: 2px
+            bottom: -25px
+            right: 0
+          &:last-child:before
+            display: none
+
+        a
+          color: $black
+          font-size: 1em
+          font-weight: 600
+          line-height: 1.375em
+
+    &-header
+      width: 100%
+      margin: 0 auto
+      @media (max-width: 991px)
+        width: 100%
+
+
+    .nav-search
+      display: none
+
+      @media (max-width: 991px)
+        display: flex
+        width: 100%
+
+      .aws-container
+        width: 100%
+
+        .aws-search-field
+          border: 1px solid $beige
+
+        .aws-form-btn
+          background: $beige
+
+
 .with-sticky-element
   .header
     padding-top: 50px
     top: -50px
+
     .navbar
       height: 50px
+
       .custom
         &-logo
           svg

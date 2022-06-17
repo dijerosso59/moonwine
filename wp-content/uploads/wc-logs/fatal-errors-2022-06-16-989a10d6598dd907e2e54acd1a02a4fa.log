@@ -1,0 +1,24 @@
+2022-06-16T07:53:07+00:00 CRITICAL Uncaught Error: Class name must be a valid object or a string in /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-widget-factory.php:61
+Stack trace:
+#0 /Applications/MAMP/htdocs/moonwine/wp-includes/widgets.php(115): WP_Widget_Factory->register(Array)
+#1 /Applications/MAMP/htdocs/moonwine/wp-content/themes/moonwine/functions.php(85): register_widget(Array)
+#2 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(307): luca_register_widget('')
+#3 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /Applications/MAMP/htdocs/moonwine/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Applications/MAMP/htdocs/moonwine/wp-includes/widgets.php(1854): do_action('widgets_init')
+#6 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(307): wp_widgets_init('')
+#7 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#8 /Applications/MAMP/htdocs/moonwine/wp-includes/plugin. dans /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-widget-factory.php à la ligne 61
+
+2022-06-16T07:56:06+00:00 CRITICAL Uncaught Error: Class name must be a valid object or a string in /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-widget-factory.php:61
+Stack trace:
+#0 /Applications/MAMP/htdocs/moonwine/wp-includes/widgets.php(115): WP_Widget_Factory->register(Array)
+#1 /Applications/MAMP/htdocs/moonwine/wp-content/themes/moonwine/functions.php(85): register_widget(Array)
+#2 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(307): luca_register_widget('')
+#3 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#4 /Applications/MAMP/htdocs/moonwine/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Applications/MAMP/htdocs/moonwine/wp-includes/widgets.php(1854): do_action('widgets_init')
+#6 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(307): wp_widgets_init('')
+#7 /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#8 /Applications/MAMP/htdocs/moonwine/wp-includes/plugin. dans /Applications/MAMP/htdocs/moonwine/wp-includes/class-wp-widget-factory.php à la ligne 61
+

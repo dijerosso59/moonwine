@@ -22,16 +22,16 @@
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
-define( 'DB_NAME', 'moonwine' );
+define( 'DB_NAME', 'wlfy3366_moonwine_luca' );
 
 /** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'wlfy3366_moonwine_luca' );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Infiltration14!' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '109.234.160.155:3306' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -86,7 +86,7 @@ $table_prefix = 'wp_';
  *
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 
