@@ -1,5 +1,4 @@
-/* Theme Name: moonwine */
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Theme Name: moonwine */ /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
  * ========================================================================== */
 /**
@@ -573,7 +572,10 @@ main {
   position: relative;
   transition: 1s;
 }
-.header .navbar-nav .menu-item:nth-child(4):after {
+.header .navbar-nav .menu-item:nth-child(4) a {
+  position: relative;
+}
+.header .navbar-nav .menu-item:nth-child(4) a:after {
   border-left: 2px solid #343434;
   border-bottom: 2px solid #343434;
   content: "";
@@ -584,11 +586,7 @@ main {
   width: 8px;
   position: absolute;
   top: 3px;
-}
-@media (max-width: 991px) {
-  .header .navbar-nav .menu-item:nth-child(4):after {
-    right: 38%;
-  }
+  right: -20px;
 }
 .header .navbar-nav .menu-item:nth-child(4):hover:after {
   transform: rotate(135deg);
@@ -622,6 +620,9 @@ main {
   display: none;
 }
 .header .navbar-nav .menu-item .sub-menu .menu-item:before {
+  display: none;
+}
+.header .navbar-nav .menu-item .sub-menu .menu-item a:after {
   display: none;
 }
 @media (max-width: 991px) {
