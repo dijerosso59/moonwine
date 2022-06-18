@@ -146,7 +146,9 @@ if ( post_password_required() ) {
                                 <label class="single-toggle-label" for="tab1">Composition</label>
                                 <div class="single-toggle-content">
                                     <p class="card-text">
-                                        lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        70% Grenache noir
+                                        <br>
+                                        30% Malvoisie
                                     </p>
                                 </div>
                             </div>
@@ -192,17 +194,52 @@ if ( post_password_required() ) {
         </div>
     </section>
 
+    <section class="product-desc">
+       <div class="container">
+           <div class="product-desc_content">
+               <div class="product-desc_column">
+                   <?php
+                   /**
+                    * Hook: woocommerce_after_single_product_summary.
+                    *
+                    * @hooked woocommerce_output_product_data_tabs - 10
+                    * @hooked woocommerce_upsell_display - 15
+                    * @hooked woocommerce_output_related_products - 20
+                    */
 
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
+                   remove_action('woocommerce_after_single_product_summary','woocommerce_upsell_display',15);
+                   remove_action('woocommerce_after_single_product_summary','woocommerce_output_related_products',20);
+                   do_action( 'woocommerce_after_single_product_summary' );
+                   ?>
+               </div>
+               <div class="product-desc_column">
+                   <?php
+                   $image = get_field('image-desc');
+                   if( !empty( $image ) ): ?>
+                       <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                   <?php endif; ?>
+               </div>
+           </div>
+       </div>
+    </section>
+
+    <section class="product-reviews">
+        <div class="container">
+            <?php
+            /**
+             * Hook: woocommerce_after_single_product_summary.
+             *
+             * @hooked woocommerce_output_product_data_tabs - 10
+             * @hooked woocommerce_upsell_display - 15
+             * @hooked woocommerce_output_related_products - 20
+             */
+            add_action('woocommerce_after_single_product_summary','woocommerce_upsell_display',15);
+            add_action('woocommerce_after_single_product_summary','woocommerce_output_related_products',20);
+            remove_action('woocommerce_after_single_product_summary','woocommerce_output_product_data_tabs',10);
+            do_action( 'woocommerce_after_single_product_summary' );
+            ?>
+        </div>
+    </section>
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
