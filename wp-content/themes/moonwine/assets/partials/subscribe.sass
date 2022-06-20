@@ -1,0 +1,276 @@
+.page-template-template-abonnement section>:not([hidden])~:not([hidden])
+    --tw-space-y-reverse: 0
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+    
+.description
+    padding: 3rem 0
+
+    .container
+        .all>:not([hidden])~:not([hidden])
+            --tw-space-y-reverse: 0
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+    span
+        color: $orange
+
+    .img
+        display: none
+
+.box
+    color: $vert-fonce
+
+    .moment-box
+        background-color: $beige-clair
+        padding: 1.5rem
+
+        h2
+            text-align: center
+            margin-bottom: 2rem
+
+        .box-element
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 2rem
+
+            img
+                width: 100%
+
+            .box-descr>:not([hidden])~:not([hidden])
+                --tw-space-y-reverse: 0
+                margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+            .box-descr
+                h4
+                    text-transform: uppercase
+
+                    &::after
+                        content: ""
+                        display: block
+                        background-color: $beige
+                        height: 1px
+                        width: 100%
+                        margin-top: 1rem
+
+                p
+                    font-weight: 400
+                    font-size: 16px
+                    line-height: 24px
+
+                a
+                    width: 13rem
+
+.list-subscription
+    text-align: center
+    padding: 5rem 0
+
+    h2
+        margin-bottom: 3rem
+
+    .grid-subscription
+        display: grid
+        grid-template-columns: repeat(1, minmax(0, 1fr))
+        gap: 3rem
+
+    .element-subscription
+        padding: 2rem
+        box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.07)
+        border-radius: 3px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        .title-subscription
+            font-weight: 700
+            font-size: 16px
+            line-height: 32px
+            letter-spacing: 3px
+            text-transform: uppercase
+            color: $vert-fonce
+            margin-bottom: 0.5rem
+            position: relative
+            text-align: left
+            z-index: 10
+
+            &::after
+                content: ""
+                position: absolute
+                width: 100%
+                height: 6px
+                bottom: 7px
+                left: 0
+                z-index: -1
+
+        #explorer
+            .title-subscription
+                &::after
+                    background-color: $vert-clair
+        #premium
+            .title-subscription
+                &::after
+                    background-color: $orange
+        #basic
+            .title-subscription
+                &::after
+                    background-color: $red
+
+        h4
+            text-align: left
+
+        .descr-subscription
+            margin-top: 2rem
+
+        .advantages-subscription>:not([hidden])~:not([hidden])
+            --tw-space-y-reverse: 0
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+
+        .advantages-subscription
+
+            &::before
+                content: ""
+                display: block
+                width: 80%
+                background-color: $beige-clair
+                height: 2px
+                margin: 2rem auto
+                    
+            li
+                display: flex
+                align-items: center
+                gap: 2rem
+                text-align: left
+                font-weight: 600
+                font-size: 16px
+                line-height: 24px
+                color: $black-less
+
+                &::before
+                    content: url(assets/img/check.svg)
+                    display: block
+                    width: 32px
+
+        .btn
+            width: 12rem
+            margin: 2rem auto 0 auto
+
+    .unit-subscription
+        display: flex
+        flex-direction: column
+        justify-content: center
+        gap: 3rem
+
+        &::before
+            content: ""
+            display: block
+            width: 80%
+            background-color: $beige-clair
+            height: 2px
+            margin: 5rem auto
+
+@media (min-width: 768px)
+    .description
+        &-content
+            display: flex
+            align-items: center
+
+            div
+                width: 50%
+
+            .text
+                width: 100%
+
+        .img
+            display: block
+
+            img
+                max-width: 100%
+                max-height: 400px
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: 50% 75%
+
+    .box
+
+        .moment-box
+
+            .box-element
+                flex-direction: row
+                justify-content: center
+                gap: 3rem
+
+                div
+                    &:nth-child(1)
+                        width: 40%
+
+                    &:nth-child(2)
+                        width: 45%
+
+                .box-descr>:not([hidden])~:not([hidden])
+                    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)))
+                
+                .box-descr
+                    h4
+                        &::after
+                            margin-top: 2rem
+
+    .list-subscription
+
+        .grid-subscription
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+            gap: 3rem
+
+        .unit-subscription
+            flex-direction: row
+            flex-wrap: wrap
+
+            &::before
+                margin: 5rem auto
+
+@media (min-width: 1024px)              
+    .box
+        position: relative
+
+        &::before
+            content: ""
+            background: url(assets/img/subscription/outside-box.svg)
+            position: absolute
+            width: 191px
+            height: 461px
+            bottom: -10rem
+            left: 0rem
+            background-repeat: no-repeat
+
+        .moment-box
+            width: 50%
+            margin: 0 auto
+            padding: 1.5rem 1.5rem 0rem 0
+            position: relative
+            
+            &::before
+                content: ""
+                background: url(assets/img/subscription/inside-box-left.svg)
+                position: absolute
+                width: 100%
+                height: 95px
+                top: 0rem
+                left: 0rem
+                background-repeat: no-repeat
+
+            &::after
+                content: ""
+                background: url(assets/img/subscription/inside-box-right.svg)
+                position: absolute
+                width: 134px
+                height: 175px
+                bottom: 0rem
+                right: 0rem
+                background-repeat: no-repeat
+
+            .box-element
+                justify-content: flex-start
+                gap: 5rem
