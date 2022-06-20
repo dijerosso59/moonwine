@@ -351,6 +351,10 @@ main {
 @media (max-width: 991px) {
   .prenav {
     background-color: #FAF8F1;
+    position: sticky;
+    height: auto;
+    z-index: 1;
+    top: 0;
   }
 }
 .prenav-header {
@@ -524,6 +528,11 @@ main {
   position: sticky;
   z-index: 1;
   top: 0;
+}
+@media (max-width: 991px) {
+  .header {
+    position: initial;
+  }
 }
 .header .navbar {
   z-index: 5;
@@ -1545,6 +1554,9 @@ footer .loi .detail {
   background-color: #E2DAC3;
   color: #114635;
   padding: 2rem 1rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 .reassurance .grid {
   display: grid;
@@ -1574,27 +1586,35 @@ footer .loi .detail {
   font-size: 12px;
 }
 
-.about {
+.about-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 2rem;
+  gap: 2rem;
+  overflow: hidden;
 }
-.about h1 {
+.about-content h1 {
   font-weight: 700;
   font-size: 20px;
   color: #114635;
   line-height: 30px;
 }
-.about p {
+.about-content .border {
+  display: none;
+}
+.about-content .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-content .info p {
   color: #4D4D4D;
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  margin: 2rem 0;
   position: relative;
 }
-.about p::before {
+.about-content .info p::before {
   content: "";
   background: url(assets/img/front-page/about/circle-left.svg);
   position: absolute;
@@ -1604,7 +1624,7 @@ footer .loi .detail {
   left: -2rem;
   background-repeat: no-repeat;
 }
-.about p::after {
+.about-content .info p::after {
   content: "";
   background: url(assets/img/front-page/about/circle-right.svg);
   position: absolute;
@@ -1615,10 +1635,72 @@ footer .loi .detail {
   background-repeat: no-repeat;
 }
 
+.subscription {
+  padding: 2rem 1rem 2rem 0;
+  color: #4D4D4D;
+  overflow: hidden;
+}
+.subscription p, .subscription li {
+  font-size: 14px;
+  line-height: 21px;
+}
+.subscription .element {
+  margin-bottom: 2rem;
+}
+.subscription .element h1 {
+  color: #B83D42;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 33px;
+}
+.subscription .element h2 {
+  font-weight: 700;
+  font-size: 22px;
+  color: #114635;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.subscription .element p, .subscription .element li {
+  font-weight: 400;
+}
+.subscription .element ul {
+  list-style: unset;
+  padding-left: 1rem;
+}
+.subscription .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subscription .content .element.desktop {
+  display: none;
+}
+.subscription .content div {
+  width: 50%;
+}
+.subscription .content div:first-child {
+  margin-right: 32px;
+}
+.subscription .content .advantages ul > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * (1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.subscription .content .advantages li {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.subscription .content .advantages li::before {
+  content: url(assets/img/front-page/subscription/check.svg);
+}
+
 .newsletter {
   background-color: #FAF8F1;
   position: relative;
   padding: 20px;
+  overflow: hidden;
 }
 .newsletter::after {
   content: "";
@@ -1630,14 +1712,14 @@ footer .loi .detail {
   right: -10rem;
   background-repeat: no-repeat;
 }
-.newsletter .flex {
-  display: flex;
-  flex-direction: column;
-}
-.newsletter .flex h1 {
+.newsletter h2 {
   font-weight: 600;
   font-size: 34px;
   color: #114635;
+}
+.newsletter .flex {
+  display: flex;
+  flex-direction: column;
 }
 .newsletter .flex p {
   font-weight: 400;
@@ -1678,41 +1760,414 @@ footer .loi .detail {
   width: 24px;
 }
 
+.post {
+  margin: 90px 0;
+}
+.post .container {
+  display: grid;
+  grid-template-areas: "a c" "b b";
+  grid-template-columns: 1fr;
+}
+@media (max-width: 767px) {
+  .post .container {
+    grid-template-areas: "a" "b" "c";
+  }
+}
+.post h2 {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  color: #114635;
+  grid-area: a;
+}
+.post img {
+  width: 100%;
+  height: auto;
+}
+.post ul {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 25px;
+  grid-area: b;
+  margin: 32px 0;
+}
+@media (max-width: 767px) {
+  .post ul {
+    flex-direction: column;
+  }
+}
+.post ul li {
+  width: 50%;
+  height: auto;
+  background-color: #FFF;
+  box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+@media (max-width: 767px) {
+  .post ul li {
+    width: 100%;
+  }
+}
+.post ul li a div {
+  padding: 32px 25px;
+}
+.post ul li h2 {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #343434;
+  margin-bottom: 16px;
+}
+.post ul li p {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #4D4D4D;
+}
+.post .btn {
+  grid-area: c;
+  min-width: 270px;
+}
+
+.faq-section {
+  margin: 80px 0;
+}
+.faq-section--content {
+  display: grid;
+  grid-template-areas: "a a" "b c";
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 767px) {
+  .faq-section--content {
+    grid-template-areas: "a c" "b b";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.faq-section--content .text--title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  color: #343434;
+  margin-bottom: 48px;
+  grid-area: a;
+}
+@media (max-width: 767px) {
+  .faq-section--content .text--title {
+    display: flex;
+    align-items: end;
+  }
+}
+@media (max-width: 767px) {
+  .faq-section--content_column {
+    margin-bottom: 24px;
+  }
+}
+.faq-section--content_column:nth-child(2) {
+  grid-area: b;
+}
+.faq-section--content_column:last-child {
+  grid-area: c;
+}
+.faq-section--content .btn {
+  max-width: 300px;
+  margin-top: 60px;
+}
+.faq-section--content .card {
+  position: relative;
+}
+.faq-section--content .card:after {
+  content: "";
+  border-top: 1px solid #343434;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+.faq-section--content .card:after:last-child {
+  display: none;
+}
+.faq-section--content .card-body {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #4D4D4D;
+  width: calc(100% - 32px);
+  padding: 30px 0;
+  margin: 0 0 0 24px;
+}
+.faq-section--content .card-text {
+  margin-top: 20px;
+}
+.faq-section--content .card .single-toggle-label {
+  width: 100%;
+  display: block;
+}
+.faq-section--content .card .single-toggle-label:after {
+  border-left: 2px solid #343434;
+  border-bottom: 2px solid #343434;
+}
+
+.product {
+  margin-top: 100px;
+}
+.product .container {
+  display: grid;
+  grid-template-areas: "a c" "b b";
+  grid-template-columns: 1fr;
+}
+@media (max-width: 767px) {
+  .product .container {
+    grid-template-areas: "a" "b" "c";
+  }
+}
+.product .text--title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  color: #114635;
+  grid-area: a;
+  width: 100%;
+}
+.product .btn {
+  min-width: 300px;
+  grid-area: c;
+}
+@media (max-width: 767px) {
+  .product .btn {
+    margin: 30px 0 60px 0;
+  }
+}
+.product--content {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 36px;
+  grid-area: b;
+  margin: 28px 0;
+}
+@media (max-width: 1250px) {
+  .product--content {
+    flex-wrap: wrap;
+  }
+}
+.product--content .product-item {
+  width: 25%;
+  max-height: 530px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1250px) {
+  .product--content .product-item {
+    width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .product--content .product-item {
+    width: 100%;
+  }
+}
+.product--content .product-item-image {
+  width: 100%;
+  height: 50%;
+}
+.product--content .product-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 600px) {
+  .product--content .product-item-image img {
+    object-position: bottom;
+  }
+}
+.product--content .product-item-content {
+  width: 100%;
+  height: 50%;
+  padding: 16px;
+  background: #FAF8F1;
+}
+.product--content .product-item-content h2 {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #114635;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.product .product-price {
+  display: flex;
+  justify-content: flex-start;
+  margin: 16px 60px 0 0;
+}
+.product .product-price_abonne {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+.product .product-price_abonne_price {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #343434;
+}
+.product .product-price_abonne_title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 8px;
+  color: #343434;
+}
+.product .product-price .woocommerce-Price-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.product .product-price .woocommerce-Price-amount bdi, .product .product-price .woocommerce-Price-amount .woocommerce-Price-currencySymbol {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #343434;
+}
+.product .product-price .product-price_public_title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 8px;
+  color: #343434;
+}
+.product .product_meta {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+}
+.product .product_meta span {
+  padding: 3px 10px;
+  width: max-content;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+.product .product_meta span:first-child {
+  background: #E2DAC3;
+}
+.product .product_meta span:nth-child(2) {
+  background: #DA8953;
+  color: #FFF;
+}
+.product .product_meta span:last-child {
+  background: #D9E0C0;
+}
+.product .product-item-image {
+  position: relative;
+}
+.product .product-item-image .product-panier {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background: #FFF;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 991px) {
+  .reassurance .grid {
+    margin: 0 auto;
+  }
+  .about-content {
+    margin: 0 auto;
+  }
+  .newsletter h1 {
+    margin: 0 auto;
+  }
+  .newsletter .flex {
+    margin: 0 auto;
+  }
+}
 @media (min-width: 768px) {
   .reassurance {
     padding: 3rem 1rem;
+    position: relative;
+  }
+  .reassurance::after {
+    content: "";
+    background: url(assets/img/front-page/reassurance/circle-after-reassurance.svg);
+    position: absolute;
+    width: 150px;
+    height: 4rem;
+    bottom: -1rem;
+    right: 0rem;
+    background-repeat: no-repeat;
   }
   .reassurance .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin: 0 8.3333333333%;
   }
   .reassurance .grid h1 {
     margin-bottom: 1.5rem;
   }
-  .about {
+  .about-content {
     flex-direction: row;
     justify-content: center;
-    margin: 0 8.3333333333%;
     gap: 2rem;
     padding: 10rem 0;
   }
-  .about .border {
+  .about-content .border {
     background: #343434;
     width: 2px;
     height: 260px;
+    display: block;
   }
-  .about h1 {
+  .about-content h1 {
     font-size: 34px;
     line-height: 51px;
   }
-  .about p::before, .about p::after {
+  .about-content .info {
+    justify-content: space-around;
+  }
+  .about-content .info p::before, .about-content .info p::after {
     content: none;
   }
-  .about .btn {
+  .about-content .btn {
     width: 19rem;
+  }
+  .subscription .element.mobile {
+    display: none;
+  }
+  .subscription .content .element.desktop {
+    display: block;
+    width: 100%;
+  }
+  .subscription .content .element.desktop h1 {
+    font-size: 16px;
+  }
+  .subscription .content .element.desktop h2 {
+    font-size: 34px;
   }
   .newsletter {
     padding: 3rem 20px;
+    margin: 140px 0 0;
   }
   .newsletter::after {
     background: url(assets/img/front-page/newsletter/circle-newsletter-home.svg);
@@ -1723,8 +2178,7 @@ footer .loi .detail {
   }
   .newsletter .flex {
     flex-direction: row;
-    align-items: flex-end;
-    margin: 0 8.3333333333%;
+    align-items: center;
     gap: 5rem;
   }
   .newsletter .flex .descr, .newsletter .flex .form {

@@ -172,3 +172,4 @@ add_filter('woocommerce_get_availability', function ($availability, $_product) {
     return $availability;
 }, 1, 2);
 
+add_theme_support( 'post-thumbnails' );

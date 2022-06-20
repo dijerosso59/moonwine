@@ -2,7 +2,9 @@
     background-color: $beige
     color: $vert-fonce
     padding: 2rem 1rem
-
+    overflow: hidden
+    position: relative
+    z-index: 0
     .grid
         display: grid
         grid-template-columns: repeat(2, minmax(0, 1fr))
@@ -30,11 +32,13 @@
         p
             font-size: 12px
 
-.about
+.about-content
     display: flex
     flex-direction: column
-    align-items: center
     padding: 2rem
+    gap: 2rem
+    overflow: hidden
+
 
     h1
         font-weight: 700
@@ -42,39 +46,106 @@
         color: $vert-fonce
         line-height: 30px
 
-    p
-        color: $black-less
-        font-weight: 400
-        font-size: 18px
-        line-height: 27px
-        margin: 2rem 0
-        position: relative
+    .border
+        display: none
 
-        &::before
-            content: ""
-            background: url(assets/img/front-page/about/circle-left.svg)
-            position: absolute
-            width: 200px
-            height: 130px
-            bottom: 0
-            left: -2rem
-            background-repeat: no-repeat
+    .info
+        display: flex
+        flex-direction: column
+        gap: 2rem
 
-        &::after
-            content: ""
-            background: url(assets/img/front-page/about/circle-right.svg)
-            position: absolute
-            width: 200px
-            height: 130px
-            top: 0
-            right: -10rem
-            background-repeat: no-repeat
+        p
+            color: $black-less
+            font-weight: 400
+            font-size: 18px
+            line-height: 27px
+            position: relative
+
+            &::before
+                content: ""
+                background: url(assets/img/front-page/about/circle-left.svg)
+                position: absolute
+                width: 200px
+                height: 130px
+                bottom: 0
+                left: -2rem
+                background-repeat: no-repeat
+
+            &::after
+                content: ""
+                background: url(assets/img/front-page/about/circle-right.svg)
+                position: absolute
+                width: 200px
+                height: 130px
+                top: 0
+                right: -10rem
+                background-repeat: no-repeat
+
+.subscription
+    padding: 2rem 1rem 2rem 0
+    color: $black-less
+    overflow: hidden
+    p, li
+        font-size: 14px
+        line-height: 21px
+
+    .element
+        margin-bottom: 2rem
+
+        h1
+            color: $red
+            text-transform: uppercase
+            font-weight: 700
+            font-size: 12px
+            line-height: 33px
+
+        h2
+            font-weight: 700
+            font-size: 22px
+            color: $vert-fonce
+            margin-top: 0.5rem
+            margin-bottom: 1rem
+
+
+        p, li
+            font-weight: 400
+
+        ul
+            list-style: unset
+            padding-left: 1rem
+
+    .content
+        display: flex
+        justify-content: center
+        align-items: center
+
+        .element.desktop
+            display: none
+
+        div
+            width: 50%
+            &:first-child
+                margin-right: 32px
+
+        .advantages
+
+            ul>:not([hidden])~:not([hidden])
+                --tw-space-y-reverse: 0
+                margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))
+                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+            li
+                display: flex
+                gap: 0.5rem
+                font-weight: 600
+
+                &::before
+                    content: url(assets/img/front-page/subscription/check.svg)
 
 .newsletter
     background-color: $beige-clair
     position: relative
     padding: 20px
-
+    overflow: hidden
     &::after
         content: ""
         background: url(assets/img/front-page/newsletter/circle-newsletter.svg)
@@ -85,14 +156,15 @@
         right: -10rem
         background-repeat: no-repeat
 
+    h2
+        font-weight: 600
+        font-size: 34px
+        color: $vert-fonce
+
     .flex
         display: flex
         flex-direction: column
 
-        h1
-            font-weight: 600
-            font-size: 34px
-            color: $vert-fonce
             
         p
             font-weight: 400
@@ -133,23 +205,333 @@
                 svg
                     width: 24px
 
+.post
+    margin: 90px 0
 
+    .container
+        display: grid
+        grid-template-areas: "a c" "b b"
+        grid-template-columns: 1fr
+        @media (max-width: 767px)
+            grid-template-areas: "a" "b" "c"
+
+    h2
+        font-family: 'Raleway'
+        font-style: normal
+        font-weight: 600
+        font-size: 34px
+        color: #114635
+        grid-area: a
+
+    img
+        width: 100%
+        height: auto
+
+    ul
+
+        display: flex
+        align-items: stretch
+        justify-content: space-between
+        gap: 25px
+        grid-area: b
+        margin: 32px 0
+        @media (max-width: 767px)
+            flex-direction: column
+        li
+            width: 50%
+            height: auto
+            background-color: $white
+            box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.05)
+            border-radius: 3px
+            @media (max-width: 767px)
+                width: 100%
+
+            a
+                div
+                    padding: 32px 25px
+            h2
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 20px
+                color: $black
+                margin-bottom: 16px
+
+            p
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 500
+                font-size: 12px
+                color: $black-less
+    .btn
+        grid-area: c
+        min-width: 270px
+
+.faq-section
+    margin: 80px 0
+
+    &--content
+        display: grid
+        grid-template-areas: "a a" "b c"
+        grid-template-columns: 1fr 1fr
+        gap: 32px
+        @media (max-width: 767px)
+            grid-template-areas: "a c" "b b"
+            grid-template-columns: 1fr 1fr
+
+        .text--title
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 600
+            font-size: 34px
+            color: $black
+            margin-bottom: 48px
+            grid-area: a
+            @media (max-width: 767px)
+                display: flex
+                align-items: end
+
+        &_column
+            @media (max-width: 767px)
+                margin-bottom: 24px
+            &:nth-child(2)
+                grid-area: b
+            &:last-child
+                grid-area: c
+
+
+        .btn
+            max-width: 300px
+            margin-top: 60px
+
+        .card
+            position: relative
+            &:after
+                content: ""
+                border-top: 1px solid $black
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                height: 1px
+            &:after:last-child
+                display: none
+
+            &-body
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 400
+                font-size: 18px
+                color: $black-less
+                width: calc(100% - 32px)
+                padding: 30px 0
+                margin: 0 0 0 24px
+
+            &-text
+                margin-top: 20px
+
+            .single-toggle-label
+                width: 100%
+                display: block
+                &:after
+                    border-left: 2px solid $black
+                    border-bottom: 2px solid $black
+
+.product
+    margin-top: 100px
+
+    .container
+        display: grid
+        grid-template-areas: "a c" "b b"
+        grid-template-columns: 1fr
+        @media (max-width: 767px)
+            grid-template-areas: "a" "b" "c"
+
+    .text--title
+        font-family: 'Raleway'
+        font-style: normal
+        font-weight: 600
+        font-size: 34px
+        color: $vert-fonce
+        grid-area: a
+        width: 100%
+
+    .btn
+        min-width: 300px
+        grid-area: c
+        @media (max-width: 767px)
+            margin: 30px 0 60px 0
+
+    &--content
+        display: flex
+        align-items: stretch
+        justify-content: space-between
+        gap: 36px
+        grid-area: b
+        margin: 28px 0
+        @media (max-width: 1250px)
+            flex-wrap: wrap
+
+
+        .product-item
+            width: 25%
+            max-height: 530px
+            @media (max-width: 1250px)
+                width: 45%
+            @media (max-width: 600px)
+                width: 100%
+
+            display: flex
+            flex-direction: column
+
+            &-image
+                width: 100%
+                height: 50%
+
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                    @media (max-width: 600px)
+                        object-position: bottom
+
+            &-content
+                width: 100%
+                height: 50%
+                padding: 16px
+                background: $beige-clair
+
+                h2
+                    font-family: 'Raleway'
+                    font-style: normal
+                    font-weight: 600
+                    font-size: 20px
+                    color: $vert-fonce
+                    margin-bottom: 5px
+                    text-transform: uppercase
+
+    .product-price
+        display: flex
+        justify-content: flex-start
+        margin: 16px 60px 0 0
+
+        &_abonne
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            margin-right: 20px
+            &_price
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 20px
+                color: $black
+            &_title
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 500
+                font-size: 12px
+                margin-top: 8px
+                color: $black
+
+        .woocommerce-Price-amount
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+
+            bdi,.woocommerce-Price-currencySymbol
+                font-family: 'Raleway'
+                font-style: normal
+                font-weight: 600
+                font-size: 20px
+                color: $black
+
+        .product-price_public_title
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 500
+            font-size: 12px
+            margin-top: 8px
+            color: $black
+    .product_meta
+        display: flex
+        flex-direction: row
+        align-items: flex-start
+        gap: 10px
+        margin: 20px 0
+
+        span
+            padding: 3px 10px
+            width: max-content
+            font-family: 'Raleway'
+            font-style: normal
+            font-weight: 500
+            font-size: 14px
+
+            &:first-child
+                background: $beige
+            &:nth-child(2)
+                background: $orange
+                color: $white
+            &:last-child
+                background: $vert-clair
+    .product-item-image
+        position: relative
+        .product-panier
+            position: absolute
+            top: 10px
+            right: 10px
+            width: 32px
+            height: 32px
+            background: $white
+            border-radius: 50%
+            padding: 8px
+            display: flex
+            align-items: center
+            justify-content: center
+
+
+
+
+
+
+
+@media (min-width: 991px)
+    .reassurance
+        .grid
+            margin: 0 auto
+    .about-content
+        margin: 0 auto
+    .newsletter
+        h1
+            margin: 0 auto
+        .flex
+            margin: 0 auto
 
 @media (min-width: 768px)
     .reassurance
         padding: 3rem 1rem
+        position: relative
+
+        &::after
+            content: ""
+            background: url(assets/img/front-page/reassurance/circle-after-reassurance.svg)
+            position: absolute
+            width: 150px
+            height: 4rem
+            bottom: -1rem
+            right: 0rem
+            background-repeat: no-repeat
 
         .grid
             grid-template-columns: repeat(4, minmax(0, 1fr))
-            margin: 0 $largeur-base
 
             h1
                 margin-bottom: 1.5rem
 
-    .about
+    .about-content
         flex-direction: row
         justify-content: center
-        margin: 0 $largeur-base
         gap: 2rem
         padding: 10rem 0
         
@@ -157,21 +539,41 @@
             background: $black
             width: 2px
             height: 260px
+            display: block
 
         h1
             font-size: 34px
             line-height: 51px
+        
+        .info
+            justify-content: space-around
 
-        p
+            p
 
-            &::before, &::after
-                content: none
+                &::before, &::after
+                    content: none
 
         .btn
             width: 19rem
 
+    .subscription
+        .element.mobile
+            display: none
+
+        .content
+            .element.desktop
+                display: block
+                width: 100%
+
+                h1
+                    font-size: 16px
+
+                h2
+                    font-size: 34px
+
     .newsletter
         padding: 3rem 20px
+        margin: 140px 0 0
 
         &::after
             background: url(assets/img/front-page/newsletter/circle-newsletter-home.svg)
@@ -182,8 +584,8 @@
 
         .flex
             flex-direction: row
-            align-items: flex-end
-            margin: 0 $largeur-base
+            align-items: center
+
             gap: 5rem
 
             .descr, .form

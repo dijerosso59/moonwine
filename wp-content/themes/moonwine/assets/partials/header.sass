@@ -1,7 +1,10 @@
 .prenav
   @media (max-width: 991px)
     background-color: $beige-clair
-
+    position: sticky
+    height: auto
+    z-index: 1
+    top: 0
   &-header
     display: flex
     justify-content: space-between
@@ -147,7 +150,8 @@
   position: sticky
   z-index: 1
   top: 0
-
+  @media (max-width: 991px)
+    position: initial
   .navbar
     z-index: 5
     background: $beige-clair
