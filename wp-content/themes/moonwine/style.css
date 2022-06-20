@@ -1953,14 +1953,10 @@ footer .loi .detail {
   gap: 36px;
   grid-area: b;
   margin: 28px 0;
-}
-@media (max-width: 1250px) {
-  .product--content {
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
 }
 .product--content .product-item {
-  width: 25%;
+  width: 22%;
   max-height: 530px;
   display: flex;
   flex-direction: column;
