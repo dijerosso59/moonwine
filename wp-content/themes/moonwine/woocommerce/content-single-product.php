@@ -81,17 +81,27 @@ if ( post_password_required() ) {
                         </div>
                         <div class="custom-flex_column">
                             <p class="product-status"><?= $product->get_availability()['availability'] ?></p>
-                            <div class="product-price">
-                                <div class="product-price_abonne">
-                                    <p class="product-price_abonne_price">17,00 €</p>
-                                    <p class="product-price_abonne_title">Prix abonné</p>
+                            <?php if ($product->is_type( 'simple' )) :  ?>
+                                <div class="product-price">
+                                    <div class="product-price_abonne">
+                                        <p class="product-price_abonne_price">17,00 €</p>
+                                        <p class="product-price_abonne_title">Prix abonné</p>
+                                    </div>
+                                    <div class="product-price_public">
+                                        <?php wc_get_template( 'single-product/price.php' ); ?>
+                                        <p class="product-price_public_title">Prix public</p>
+                                    </div>
+                                    <div></div>
                                 </div>
-                                <div class="product-price_public">
-                                    <?php wc_get_template( 'single-product/price.php' ); ?>
-                                    <p class="product-price_public_title">Prix public</p>
+                            <?php elseif ($product->is_type( 'variable' )) :  ?>
+                                <div class="product-price">
+                                    <div class="product-price_public variable">
+                                        <?php wc_get_template( 'single-product/price.php' ); ?>
+                                        <p class="product-price_public_title">Prix public</p>
+                                    </div>
+                                    <div></div>
                                 </div>
-                                <div></div>
-                            </div>
+                            <?php endif; ?>
                             <div class="product-quantity">
                                 <p class="product-quantity_title">Quantité</p>
                                 <?php if ($product->is_type( 'simple' )) :  ?>

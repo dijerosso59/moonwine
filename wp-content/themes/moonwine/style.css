@@ -1688,6 +1688,8 @@ footer .loi .detail {
 }
 
 .home-slide {
+  position: relative;
+  overflow: hidden;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -1938,6 +1940,8 @@ footer .loi .detail {
 }
 
 .post {
+  position: relative;
+  overflow: hidden;
   margin: 90px 0;
 }
 .post .container {
@@ -2011,6 +2015,8 @@ footer .loi .detail {
 }
 
 .faq-section {
+  position: relative;
+  overflow: hidden;
   margin: 80px 0;
 }
 .faq-section--content {
@@ -2093,6 +2099,8 @@ footer .loi .detail {
 }
 
 .product-review {
+  position: relative;
+  overflow: hidden;
   margin-top: 100px;
 }
 .product-review .container {
