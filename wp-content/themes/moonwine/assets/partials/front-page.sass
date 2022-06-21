@@ -337,7 +337,7 @@
                     border-left: 2px solid $black
                     border-bottom: 2px solid $black
 
-.product
+.product-review
     margin-top: 100px
 
     .container
@@ -357,7 +357,8 @@
         width: 100%
 
     .btn
-        min-width: 300px
+        width: 300px
+        height: 60px
         grid-area: c
         @media (max-width: 767px)
             margin: 30px 0 60px 0
@@ -366,22 +367,16 @@
         display: flex
         align-items: stretch
         justify-content: space-between
-        gap: 36px
+        gap: 30px
         grid-area: b
         margin: 28px 0
         flex-wrap: wrap
 
-
         .product-item
-            width: 22%
-            max-height: 530px
-            @media (max-width: 1250px)
-                width: 45%
-            @media (max-width: 600px)
-                width: 100%
-
             display: flex
             flex-direction: column
+            width: 100%
+            height: 100%
 
             &-image
                 width: 100%
@@ -474,7 +469,13 @@
                 color: $white
             &:last-child
                 background: $vert-clair
-    .product-item-image
+    .product-items
+        width: 23%
+        max-height: 530px
+        @media (max-width: 1250px)
+            width: 45%
+        @media (max-width: 600px)
+            width: 100%
         position: relative
         .product-panier
             position: absolute
