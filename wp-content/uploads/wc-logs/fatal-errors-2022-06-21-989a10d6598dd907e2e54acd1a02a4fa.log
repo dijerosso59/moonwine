@@ -1,0 +1,21 @@
+2022-06-21T12:04:46+00:00 CRITICAL Uncaught Error: Call to a member function is_registration_enabled() on null in C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\form-checkout.php:27
+Stack trace:
+#0 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-checkout.php(313): wc_get_template('checkout/form-c...', Array)
+#2 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-checkout.php(67): WC_Shortcode_Checkout::checkout()
+#3 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(72): WC_Shortcode_Checkout::output('')
+#4 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(95): WC_Shortcodes::shortcode_wrapper(Array, '')
+#5 C:\laragon\www\moonwine\wp-includes\shortcodes.php(356): WC_Shortcodes::checkout('', '', 'woocommerce_che...')
+#6 [internal function]: do_shortcode_tag dans C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\form-checkout.php à la ligne 27
+
+2022-06-21T12:15:57+00:00 CRITICAL Uncaught Error: Call to a member function get_image() on bool in C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\review-order.php:25
+Stack trace:
+#0 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2321): wc_get_template('checkout/review...', Array)
+#2 C:\laragon\www\moonwine\wp-includes\class-wp-hook.php(307): woocommerce_order_review('')
+#3 C:\laragon\www\moonwine\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 C:\laragon\www\moonwine\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#5 C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\form-checkout.php(59): do_action('woocommerce_che...')
+#6 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\laragon\\www\\...')
+#7 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\shortcod dans C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\review-order.php à la ligne 25
+

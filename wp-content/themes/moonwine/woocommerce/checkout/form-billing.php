@@ -25,7 +25,8 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php else : ?>
 
-		<h3><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h3>
+		<h3>Informations personnelles</h3>
+        <p class="text-info">Entrez vos informations personnelles et votre adresse. Cette dernière sera utilisée comme adresse de facturation.</p>
 
 	<?php endif; ?>
 
