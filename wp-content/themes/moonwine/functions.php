@@ -19,6 +19,8 @@ function luca_supports()
     // Emplacement du menu du footer
     register_nav_menu('footer', 'Pied de page');
 
+    add_theme_support('custom-logo');
+
     add_theme_support('woocommerce');
 }
 
@@ -136,17 +138,18 @@ function woocommerce_header_add_to_cart_fragment($fragments)
     global $woocommerce;
 
     ob_start(); ?>
-    <a class="" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart'); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/shopping-bag.svg" alt="">
-        <span class="cart-contents"><?php echo sprintf(_n('%d', '%d', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
-        <p class="prenav-search_label_text">Mon panier</p>
-    </a>
-    <?php
+<a class="" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e('View your shopping cart'); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/shopping-bag.svg" alt="">
+    <span
+        class="cart-contents"><?php echo sprintf(_n('%d', '%d', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?></span>
+    <p class="prenav-search_label_text">Mon panier</p>
+</a>
+<?php
     $fragments['a.cart-customlocation'] = ob_get_clean();
     return $fragments;
 }
 
-add_theme_support('custom-logo');
+
 
 add_filter('gform_submit_button', 'form_submit_button', 10, 2);
 function form_submit_button($button, $form)
@@ -172,4 +175,15 @@ add_filter('woocommerce_get_availability', function ($availability, $_product) {
     return $availability;
 }, 1, 2);
 
-add_theme_support( 'post-thumbnails' );
+// Pages d'options
+if( function_exists( 'acf_add_options_page' ) ) {
+	
+	acf_add_options_page( array(
+		'page_title' 	=> 'Options du thème',
+		'menu_title'	=> 'Options',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	) );
+	
+}

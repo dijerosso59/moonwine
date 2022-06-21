@@ -33,24 +33,18 @@ footer
             margin-bottom: calc(1rem * var(--tw-space-y-reverse))
 
         .socials
-            text-align: center
-
+            .logo
+                img
+                    width: 4rem
             h2
                 color: $black
 
             div
                 display: flex
-                justify-content: center
                 gap: 1rem
 
-            svg
-                width: 30px
-                transition-duration: 500ms
-
-                path
-
-                    &:hover
-                        fill: #ADADAD
+            img
+                width: 2rem
         
         .newsletter-footer>:not([hidden])~:not([hidden])
             --tw-space-y-reverse: 0
@@ -163,9 +157,10 @@ footer
         padding: 1rem
         margin: 20px 0
 
-        h1
+        p
             font-weight: 800
             font-size: 12px
+            line-height: 18px
 
     .loi
         display: flex
@@ -180,7 +175,7 @@ footer
         img
             width: 30%
 
-        h2
+        .text-loi
             font-weight: 900
             font-size: 14px
 
@@ -241,7 +236,7 @@ footer
                         margin-left: 0
 
         .alcool
-            h1
+            p
                 font-size: 18px
 
         .loi

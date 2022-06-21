@@ -59,6 +59,14 @@ if ( post_password_required() ) {
                      * x @hooked woocommerce_template_single_sharing - 50
                      * @hooked WC_Structured_Data::generate_product_data() - 60
                      */
+
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+                    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
                     ?>
 
                     <div class="custom-flex">
@@ -86,7 +94,27 @@ if ( post_password_required() ) {
                             </div>
                             <div class="product-quantity">
                                 <p class="product-quantity_title">Quantité</p>
-                                <?php wc_get_template( 'single-product/add-to-cart/simple.php' ); ?>
+                                <?php if ($product->is_type( 'simple' )) :  ?>
+                                    <?php wc_get_template( 'single-product/add-to-cart/simple.php' );
+                                elseif ($product->is_type( 'variable' )) :
+                                    global $product;
+
+                                    // Enqueue variation scripts.
+                                    wp_enqueue_script( 'wc-add-to-cart-variation' );
+
+                                    // Get Available variations?
+                                    $get_variations = count( $product->get_children() ) <= apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
+
+                                    // Load the template.
+                                    wc_get_template(
+                                    'single-product/add-to-cart/variable.php',
+                                    array(
+                                    'available_variations' => $get_variations ? $product->get_available_variations() : false,
+                                    'attributes'           => $product->get_variation_attributes(),
+                                    'selected_attributes'  => $product->get_default_attributes(),
+                                    )
+                                    );
+                                endif; ?>
                             </div>
 
                             <div class="product-info">
@@ -120,16 +148,7 @@ if ( post_password_required() ) {
                         </div>
                     </div>
 
-                    <?php
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
-                    remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
-                    do_action( 'woocommerce_single_product_summary' );
-                    ?>
+                    <?php do_action( 'woocommerce_single_product_summary' ); ?>
                 </div>
             </div>
         </div>
@@ -260,7 +279,7 @@ if ( post_password_required() ) {
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) :
                     while ($loop->have_posts()) : $loop->the_post(); ?>
-                        <?php // lien vers single product woocommerce?>
+                        <?php $product = new WC_Product(get_the_ID());   ?>
                         <div class="product-items">
                             <a href="<?php echo the_permalink() ?>">
                                 <div class="product-item">

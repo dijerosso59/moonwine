@@ -19,3 +19,14 @@ Stack trace:
 #6 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\laragon\\www\\...')
 #7 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\shortcod dans C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\checkout\review-order.php à la ligne 25
 
+2022-06-21T15:19:36+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\content-single-product.php:112
+Stack trace:
+#0 C:\laragon\www\moonwine\wp-includes\template.php(772): require()
+#1 C:\laragon\www\moonwine\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\laragon\\www\\...', false)
+#2 C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\single-product.php(37): wc_get_template_part('content', 'single-product')
+#3 C:\laragon\www\moonwine\wp-includes\template-loader.php(106): include('C:\\laragon\\www\\...')
+#4 C:\laragon\www\moonwine\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#5 C:\laragon\www\moonwine\index.php(17): require('C:\\laragon\\www\\...')
+#6 {main}
+  thrown dans C:\laragon\www\moonwine\wp-content\themes\moonwine\woocommerce\content-single-product.php à la ligne 112
+

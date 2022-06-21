@@ -4,12 +4,12 @@
 
 <section class="error">
     <div>
-        <img src="<?= get_template_directory_uri(); ?>/assets/img/404/bouteille.png" alt="Bouteille">
+        <img src="<?= the_field('image_404', 'option') ?>" alt="404">
     </div>
 
     <div>
-        <h1>404</h1>
-        <p>La page que vous recherchez est introuvable</p>
+        <h1><?= the_field('titre_404', 'option') ?></h1>
+        <p><?= the_field('texte_404', 'option') ?></p>
         <?php $text = "Revenir à l'accueil"; $link = get_site_url(); include 'include/button.php'; ?>
     </div>
 </section>
