@@ -18,11 +18,10 @@
                             </div>
                         </div>
                         <div class="newsletter-footer">
-                            <h2>Inscrivez-vous à notre Newsletter</h2>
-                            <p>Abonnez- vous à notre newsletter pour recevoir nos offres en avant-première et toute
-                                notre actualité ! Au programme : des interviews inspirants des artistes de nos boxes
-                                et des témoignages engagés de nos vignerons.</p>
+                            <h2><?= the_field('titre_newsletter_footer', 'option') ?></h2>
+                            <p><?= the_field('texte_newsletter_footer', 'option') ?></p>
                             <?= do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
+                            <!-- <?= do_shortcode(the_field('formulaire_newsletter_footer', 'option')); ?> -->
                         </div>
                     </div>
                     <div class="footer-menu">

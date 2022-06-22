@@ -24,7 +24,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 
 <ul
-	class="list-custom-cart woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
+	class="list-shop woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
 	<?php
 		do_action( 'woocommerce_before_mini_cart_contents' );
 
@@ -40,11 +40,54 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				?>
 	<li
 		class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
-		<?php
+
+		<div class="flex-product">
+			<div class="img-shop">
+				<?php if ( empty( $product_permalink ) ) : ?>
+				<?php echo $thumbnail . wp_kses_post( $product_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php else : ?>
+				<a href="<?php echo esc_url( $product_permalink ); ?>">
+					<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</a>
+				<?php endif; ?>
+			</div>
+			<div class="descr-shop">
+				<p><?= $product_name ?></p>
+				<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">Quantité : ' . sprintf( '%s  %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<div class="flex-quantity">
+					<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+						class="product-quantity-choice_down">-</button>
+						<?php
+						if ( $_product->is_sold_individually() ) {
+							$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
+						} else {
+							$product_quantity = woocommerce_quantity_input(
+								array(
+									'input_name'   => "cart[{$cart_item_key}][qty]",
+									'input_value'  => $cart_item['quantity'],
+									'max_value'    => $_product->get_max_purchase_quantity(),
+									'min_value'    => '0',
+									'product_name' => $_product->get_name(),
+								),
+								$_product,
+								false
+							);
+						}
+
+						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+			
+						?>
+					<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+						class="product-quantity-choice_up">+</button>
+				</div>
+			</div>
+			<div class="delete-shop">
+				<?php
 					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						'woocommerce_cart_item_remove_link',
 						sprintf(
-							'<a href="%s" style="display: none" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
+							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z"/></svg></a>',
 							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
 							esc_attr__( 'Remove this item', 'woocommerce' ),
 							esc_attr( $product_id ),
@@ -54,26 +97,6 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						$cart_item_key
 					);
 					?>
-		<div class="custom-shop-flex">
-			<div class="element-flex">
-				<div class="product-img">
-					<?php if ( empty( $product_permalink ) ) : ?>
-					<?php echo $thumbnail . wp_kses_post( $product_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php else : ?>
-					<a class="link-product" href="<?php echo esc_url( $product_permalink ); ?>">
-						<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</a>
-					<?php endif; ?>
-				</div>
-				<div class="product-descr">
-					<?= "<p class= 'title-product'>".wp_kses_post( $product_name )."<p>" ?>
-					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">Quantité : ' . sprintf( '%s &times; %s', $cart_item['quantity'] ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<p><?php echo $product_price ?></p>
-				</div>
-			</div>
-			<div class="change-quantity">
-
 			</div>
 		</div>
 	</li>
@@ -85,7 +108,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 </ul>
 
-<div class="info-minicart">
+<div class="total-shop">
 	<p class="woocommerce-mini-cart__total total">
 		<?php
 		/**
@@ -99,18 +122,17 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?>
+	<p class="woocommerce-mini-cart__buttons buttons">
+		<!-- <?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?> -->
+		<a class="btn" href="/commander">
+			Commander
+			<svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M36.9924 7.06247C37.303 6.75183 37.303 6.24817 36.9924 5.93753L31.9301 0.875287C31.6195 0.564643 31.1158 0.564643 30.8052 0.875287C30.4945 1.18593 30.4945 1.68959 30.8052 2.00023L35.305 6.5L30.8052 10.9998C30.4945 11.3104 30.4945 11.8141 30.8052 12.1247C31.1158 12.4354 31.6195 12.4354 31.9301 12.1247L36.9924 7.06247ZM0 7.29545H36.4299V5.70455H0V7.29545Z"
+					fill="#343434" />
+			</svg>
+		</a>
 	</p>
-</div>
-
-<div>
-	<div class="shipping">
-
-	</div>
-	<div class="order-total">
-		<p><?php esc_html_e( 'Total de la commance', 'woocommerce' ); ?></p>
-		<p data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></p>
-	</div>
 </div>
 
 <?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>

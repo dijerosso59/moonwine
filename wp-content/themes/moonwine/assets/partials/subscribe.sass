@@ -1,8 +1,3 @@
-.page-template-template-abonnement section>:not([hidden])~:not([hidden])
-    --tw-space-y-reverse: 0
-    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)))
-    margin-bottom: calc(1rem * var(--tw-space-y-reverse))
-    
 .description
     padding: 3rem 0
 
@@ -108,14 +103,40 @@
             .title-subscription
                 &::after
                     background-color: $vert-clair
+
+            .advantages-subscription
+                li
+                    &::before
+                        content: url(assets/img/subscription/check-vert-clair.svg)
+
         #premium
             .title-subscription
                 &::after
                     background-color: $orange
+
+            .advantages-subscription
+                li
+                    &::before
+                        content: url(assets/img/subscription/check-orange.svg)
         #basic
             .title-subscription
                 &::after
                     background-color: $red
+
+            .advantages-subscription
+                li
+                    &::before
+                        content: url(assets/img/subscription/check-rouge.svg)
+
+        #unit
+            .title-subscription
+                &::after
+                    background-color: $vert-clair
+
+            .advantages-subscription
+                li
+                    &::before
+                        content: url(assets/img/subscription/check-vert-fonce.svg)
 
         h4
             text-align: left
@@ -129,7 +150,6 @@
             margin-bottom: calc(1rem * var(--tw-space-y-reverse))
 
         .advantages-subscription
-
             &::before
                 content: ""
                 display: block
@@ -147,11 +167,6 @@
                 font-size: 16px
                 line-height: 24px
                 color: $black-less
-
-                &::before
-                    content: url(assets/img/check.svg)
-                    display: block
-                    width: 32px
 
         .btn
             width: 12rem

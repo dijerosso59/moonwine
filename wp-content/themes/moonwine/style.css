@@ -797,61 +797,120 @@ h4 {
 .modal .modal-content a {
   display: block;
 }
-.modal .modal-content .list-custom-cart {
-  padding: 1.5rem;
+.modal .modal-content .widget_shopping_cart_content {
+  background-color: white;
 }
-.modal .modal-content .list-custom-cart li::after {
-  content: "";
-  width: 100%;
-  height: 3px;
-  display: block;
-  background-color: #FAF8F1;
-  margin: 1rem auto;
+.modal .modal-content .woocommerce-mini-cart__empty-message {
+  text-align: center;
+  margin-top: 3rem;
 }
 .modal .modal-content .flex-shop {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: #FAF8F1;
   padding: 1.5rem;
+  background-color: #FAF8F1;
+  gap: 1rem;
 }
 .modal .modal-content .flex-shop #close {
   width: 2rem;
 }
-.modal .modal-content .flex-shop .list-custom-cart {
-  display: flex;
-  flex-direction: column;
+.modal .modal-content .list-shop {
+  padding: 1.5rem;
 }
-.modal .modal-content .custom-shop-flex {
+.modal .modal-content .list-shop li::after {
+  content: "";
+  width: 100%;
+  background-color: #FAF8F1;
+  display: block;
+  height: 3px;
+  margin: 1rem 0;
+}
+.modal .modal-content .list-shop .flex-product {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.modal .modal-content .custom-shop-flex .element-flex {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+.modal .modal-content .list-shop .flex-product .img-shop {
+  width: 40%;
 }
-.modal .modal-content .custom-shop-flex .element-flex .product-img {
-  width: 50%;
-}
-.modal .modal-content .custom-shop-flex .element-flex .product-img img {
+.modal .modal-content .list-shop .flex-product .img-shop img {
   width: 100%;
   height: 100%;
 }
-.modal .modal-content .custom-shop-flex .element-flex .product-descr > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * (1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+.modal .modal-content .list-shop .flex-product .descr-shop {
+  width: 40%;
 }
-.modal .modal-content .custom-shop-flex .element-flex .product-descr {
-  font-size: 16px;
-  font-weight: bold;
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }
-.modal .modal-content .custom-shop-flex .element-flex .product-descr .quantity {
-  font-weight: 400;
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity button {
+  background-color: #114635;
+  padding: 0 0.75rem;
+  color: white;
+  font-size: 2rem;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  font-weight: 800;
+  font-size: 20px;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity input:focus {
+  outline: none;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity input::-webkit-outer-spin-button, .modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity input::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop .flex-quantity input[type=number] {
+  -moz-appearance: textfield;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop p {
+  margin-bottom: 0.25rem;
+}
+.modal .modal-content .list-shop .flex-product .descr-shop .quantity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.modal .modal-content .list-shop .delete-shop {
+  width: 20%;
+  text-align: center;
+}
+.modal .modal-content .list-shop .delete-shop svg {
+  fill: #B83D42;
+}
+.modal .modal-content .total-shop {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+.modal .modal-content .total-shop .woocommerce-mini-cart__total {
+  display: flex;
+  gap: 3rem;
+  background-color: #FAF8F1;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.modal .modal-content .total-shop .btn {
+  display: flex;
+  width: 13rem;
+  margin-left: auto;
+  margin-top: 2rem;
 }
 
+@media (min-width: 992px) {
+  .modal .modal-content {
+    width: 33.33%;
+  }
+}
+@media (max-width: 991px) {
+  .modal .modal-content {
+    width: 50%;
+  }
+}
 footer {
   background-color: #FAF8F1;
   padding: 2rem 20px !important;
@@ -923,9 +982,15 @@ footer .flex .newsletter-footer form .mail input {
   padding-left: 1rem !important;
   background-color: #FAF8F1;
 }
+footer .flex .newsletter-footer form .gfield_validation_message {
+  display: none;
+}
 footer .flex .newsletter-footer form .gform_footer.top_label {
   margin: 0;
   padding: 0;
+}
+footer .flex .newsletter-footer form .gform_footer.top_label .gform_ajax_spinner {
+  position: absolute;
 }
 footer .flex .newsletter-footer form button {
   border: none;
@@ -1067,6 +1132,9 @@ footer .loi .detail {
     padding: 1rem !important;
     margin-top: 0;
   }
+  footer .flex .space .newsletter-footer .mail input:focus {
+    outline: none;
+  }
   footer .flex .space .newsletter-footer button {
     height: 51.25px;
   }
@@ -1094,6 +1162,9 @@ footer .loi .detail {
   }
   footer .loi img {
     width: 10%;
+  }
+  footer .loi .text-loi {
+    font-size: 20px;
   }
   footer .loi .detail {
     margin-top: 0.5rem;
@@ -1853,55 +1924,62 @@ footer .loi .detail {
   font-size: 14px;
   line-height: 21px;
 }
-.subscription .element {
+.subscription .container .btn-mobile .btn {
+  width: 15rem;
+  margin: 2rem auto 0 auto;
+}
+.subscription .container .element {
   margin-bottom: 2rem;
 }
-.subscription .element h1 {
+.subscription .container .element h1 {
   color: #B83D42;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
   line-height: 33px;
 }
-.subscription .element h2 {
+.subscription .container .element h2 {
   font-weight: 700;
   font-size: 22px;
   color: #114635;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
-.subscription .element p, .subscription .element li {
+.subscription .container .element p, .subscription .container .element li {
   font-weight: 400;
 }
-.subscription .element ul {
+.subscription .container .element ul {
   list-style: unset;
   padding-left: 1rem;
 }
-.subscription .content {
+.subscription .container .content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.subscription .content .element.desktop {
+.subscription .container .content .element.desktop {
   display: none;
 }
-.subscription .content div {
+.subscription .container .content div {
   width: 50%;
 }
-.subscription .content div:first-child {
+.subscription .container .content div:first-child {
   margin-right: 32px;
 }
-.subscription .content .advantages ul > :not([hidden]) ~ :not([hidden]) {
+.subscription .container .content .btn-desk {
+  display: none;
+}
+.subscription .container .content .advantages ul > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * (1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
-.subscription .content .advantages li {
+.subscription .container .content .advantages li {
   display: flex;
   gap: 0.5rem;
   font-weight: 600;
 }
-.subscription .content .advantages li::before {
+.subscription .container .content .advantages li::before {
   content: url(assets/img/front-page/subscription/check.svg);
 }
 
@@ -1946,9 +2024,15 @@ footer .loi .detail {
   padding-left: 1rem !important;
   background-color: #FAF8F1;
 }
+.newsletter .flex form .gfield_validation_message {
+  display: none;
+}
 .newsletter .flex form .gform_footer.top_label {
   margin: 0;
   padding: 0;
+}
+.newsletter .flex form .gform_footer.top_label .gform_ajax_spinner {
+  position: absolute;
 }
 .newsletter .flex form button {
   border: none;
@@ -2420,18 +2504,30 @@ footer .loi .detail {
   .about-content .btn {
     width: 19rem;
   }
-  .subscription .element.mobile {
+  .subscription .container .element.mobile {
     display: none;
   }
-  .subscription .content .element.desktop {
+  .subscription .container .content {
+    gap: 5rem;
+  }
+  .subscription .container .content .element.desktop {
     display: block;
     width: 100%;
   }
-  .subscription .content .element.desktop h1 {
+  .subscription .container .content .element.desktop h1 {
     font-size: 16px;
   }
-  .subscription .content .element.desktop h2 {
+  .subscription .container .content .element.desktop h2 {
     font-size: 34px;
+  }
+  .subscription .container .content .btn-desk {
+    display: block;
+  }
+  .subscription .container .content .btn-desk .btn {
+    margin-top: 3rem;
+  }
+  .subscription .container .btn-mobile {
+    display: none;
   }
   .newsletter {
     padding: 3rem 20px;
@@ -2458,6 +2554,9 @@ footer .loi .detail {
   .newsletter .flex form .mail input {
     padding: 1rem !important;
   }
+  .newsletter .flex form .mail input:focus {
+    outline: none;
+  }
   .newsletter .flex form button {
     height: 51.25px;
   }
@@ -2474,12 +2573,6 @@ footer .loi .detail {
     background-repeat: no-repeat;
   }
 }
-.page-template-template-abonnement section > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * (1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
 .description {
   padding: 3rem 0;
 }
@@ -2584,11 +2677,26 @@ footer .loi .detail {
 .list-subscription .element-subscription #explorer .title-subscription::after {
   background-color: #D9E0C0;
 }
+.list-subscription .element-subscription #explorer .advantages-subscription li::before {
+  content: url(assets/img/subscription/check-vert-clair.svg);
+}
 .list-subscription .element-subscription #premium .title-subscription::after {
   background-color: #DA8953;
 }
+.list-subscription .element-subscription #premium .advantages-subscription li::before {
+  content: url(assets/img/subscription/check-orange.svg);
+}
 .list-subscription .element-subscription #basic .title-subscription::after {
   background-color: #B83D42;
+}
+.list-subscription .element-subscription #basic .advantages-subscription li::before {
+  content: url(assets/img/subscription/check-rouge.svg);
+}
+.list-subscription .element-subscription #unit .title-subscription::after {
+  background-color: #D9E0C0;
+}
+.list-subscription .element-subscription #unit .advantages-subscription li::before {
+  content: url(assets/img/subscription/check-vert-fonce.svg);
 }
 .list-subscription .element-subscription h4 {
   text-align: left;
@@ -2618,11 +2726,6 @@ footer .loi .detail {
   font-size: 16px;
   line-height: 24px;
   color: #4D4D4D;
-}
-.list-subscription .element-subscription .advantages-subscription li::before {
-  content: url(assets/img/check.svg);
-  display: block;
-  width: 32px;
 }
 .list-subscription .element-subscription .btn {
   width: 12rem;

@@ -85,13 +85,13 @@
         <div class="modal-content">
             <div class="flex-shop">
                 <svg id="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2">
+                     stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 <h4>Mon panier
                     (<?= sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>)
                 </h4>
             </div>
-            <?php woocommerce_mini_cart() ?>
+            <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
         </div>
     </div>

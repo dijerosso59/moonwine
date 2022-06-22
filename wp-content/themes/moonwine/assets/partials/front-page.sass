@@ -128,61 +128,71 @@
     padding: 2rem 1rem 2rem 0
     color: $black-less
     overflow: hidden
+
     p, li
         font-size: 14px
         line-height: 21px
 
-    .element
-        margin-bottom: 2rem
+    .container
+        .btn-mobile
+            .btn
+                width: 15rem
+                margin: 2rem auto 0 auto
 
-        h1
-            color: $red
-            text-transform: uppercase
-            font-weight: 700
-            font-size: 12px
-            line-height: 33px
+        .element
+            margin-bottom: 2rem
 
-        h2
-            font-weight: 700
-            font-size: 22px
-            color: $vert-fonce
-            margin-top: 0.5rem
-            margin-bottom: 1rem
+            h1
+                color: $red
+                text-transform: uppercase
+                font-weight: 700
+                font-size: 12px
+                line-height: 33px
+
+            h2
+                font-weight: 700
+                font-size: 22px
+                color: $vert-fonce
+                margin-top: 0.5rem
+                margin-bottom: 1rem
 
 
-        p, li
-            font-weight: 400
+            p, li
+                font-weight: 400
 
-        ul
-            list-style: unset
-            padding-left: 1rem
+            ul
+                list-style: unset
+                padding-left: 1rem
 
-    .content
-        display: flex
-        justify-content: center
-        align-items: center
+        .content
+            display: flex
+            justify-content: center
+            align-items: center
 
-        .element.desktop
-            display: none
+            .element.desktop
+                display: none
 
-        div
-            width: 50%
-            &:first-child
-                margin-right: 32px
+            div
+                width: 50%
+                &:first-child
+                    margin-right: 32px
 
-        .advantages
+            .btn-desk
+                display: none
 
-            ul>:not([hidden])~:not([hidden])
-                --tw-space-y-reverse: 0
-                margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))
-                margin-bottom: calc(1rem * var(--tw-space-y-reverse))
-            li
-                display: flex
-                gap: 0.5rem
-                font-weight: 600
+            .advantages
 
-                &::before
-                    content: url(assets/img/front-page/subscription/check.svg)
+                ul>:not([hidden])~:not([hidden])
+                    --tw-space-y-reverse: 0
+                    margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))
+                    margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+                li
+                    display: flex
+                    gap: 0.5rem
+                    font-weight: 600
+
+                    &::before
+                        content: url(assets/img/front-page/subscription/check.svg)
 
 .newsletter
     background-color: $beige-clair
@@ -226,9 +236,15 @@
                     padding-left: 1rem !important
                     background-color: $beige-clair
 
+            .gfield_validation_message
+                display: none
+
             .gform_footer.top_label
                 margin: 0
                 padding: 0
+
+                .gform_ajax_spinner
+                    position: absolute
 
             button
                 border: none
@@ -463,12 +479,14 @@
             flex-direction: column
             align-items: flex-start
             margin-right: 20px
+
             &_price
                 font-family: 'Raleway'
                 font-style: normal
                 font-weight: 600
                 font-size: 20px
                 color: $black
+
             &_title
                 font-family: 'Raleway'
                 font-style: normal
@@ -518,6 +536,7 @@
                 color: $white
             &:last-child
                 background: $vert-clair
+
     .product-items
         width: 23%
         max-height: 530px
@@ -538,10 +557,6 @@
             display: flex
             align-items: center
             justify-content: center
-
-
-
-
 
 @media (min-width: 395px)
     .home-slide
@@ -664,19 +679,32 @@
             width: 19rem
 
     .subscription
-        .element.mobile
-            display: none
+        .container
 
-        .content
-            .element.desktop
-                display: block
-                width: 100%
+            .element.mobile
+                display: none
 
-                h1
-                    font-size: 16px
+            .content
+                gap: 5rem
 
-                h2
-                    font-size: 34px
+                .element.desktop
+                    display: block
+                    width: 100%
+
+                    h1
+                        font-size: 16px
+
+                    h2
+                        font-size: 34px
+
+                .btn-desk
+                    display: block
+
+                    .btn
+                        margin-top: 3rem
+
+            .btn-mobile
+                display: none
 
     .newsletter
         padding: 3rem 20px
@@ -704,6 +732,9 @@
                 .mail
                     input
                         padding: 1rem !important
+
+                        &:focus
+                            outline: none
 
                 button
                     height: 51.25px

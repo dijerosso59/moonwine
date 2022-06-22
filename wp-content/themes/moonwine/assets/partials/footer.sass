@@ -72,9 +72,15 @@ footer
                         padding-left: 1rem !important
                         background-color: $beige-clair
 
+                .gfield_validation_message
+                    display: none
+
                 .gform_footer.top_label
                     margin: 0
                     padding: 0
+
+                    .gform_ajax_spinner
+                        position: absolute
 
                 button
                     border: none
@@ -221,6 +227,9 @@ footer
                             padding: 1rem !important
                             margin-top: 0
 
+                            &:focus
+                                outline: none
+
                     button
                         height: 51.25px
 
@@ -251,6 +260,9 @@ footer
 
             img
                 width: 10%
+
+            .text-loi
+                font-size: 20px
 
             .detail
                 margin-top: 0.5rem
