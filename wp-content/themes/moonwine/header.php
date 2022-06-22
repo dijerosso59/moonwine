@@ -37,6 +37,12 @@
                                 class="cart-contents"><?php echo sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span>
                             <p class="prenav-search_label_text">Mon panier</p>
                         </button>
+                        <select name="language" id="language-select">
+                            <option value="FR">🇫🇷&emsp;</option>
+                            <option value="NL">🇳🇱&emsp;</option>
+                            <option value="DE">🇩🇪&emsp;</option>
+                            <option value="ES">🇪🇸&emsp;</option>
+                        </select>
                         <button type="button" id="megamenu-mobile" class="navbar-toggle collapsed"
                             data-toggle="collapse" aria-expanded="false" aria-label="Navigation mobile">
                             <span class="one" aria-hidden="true"></span>

@@ -454,6 +454,14 @@ h4 {
     right: -10px;
   }
 }
+.prenav-header .prenavbar .navigation select {
+  text-transform: none;
+  background: transparent;
+  border: 1px solid black;
+  width: 50px;
+  border-radius: 5px;
+  height: 30px;
+}
 .prenav-header .prenavbar .prenav-search {
   display: flex;
   overflow: hidden;
