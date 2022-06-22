@@ -433,6 +433,11 @@ h4 {
     gap: 20px;
   }
 }
+.prenav-header .prenavbar .navigation .custom-logo {
+  position: relative;
+  z-index: 2;
+  margin: 0 20px 0 0;
+}
 .prenav-header .prenavbar .navigation .cart {
   position: relative;
   background: transparent;
@@ -620,7 +625,7 @@ h4 {
     top: 120%;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
     overflow-y: auto;
   }
 }
@@ -906,7 +911,7 @@ h4 {
     width: 33.33%;
   }
 }
-@media (max-width: 991px) {
+@media (min-width: 767px) {
   .modal .modal-content {
     width: 50%;
   }

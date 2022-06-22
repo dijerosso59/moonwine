@@ -16,7 +16,7 @@ jQuery(function ($) {
                     $("#megamenu-mobile").removeClass("collapsed");
                     jQuery('#megamenu-mobile').attr('aria-expanded', 'true');
                     jQuery('.navbar-nav').animate({
-                        'top': '170px'
+                        'top': '90px'
                     }, 500);
                     $(".navbar-header").addClass("mobile");
                     $('body').css('overflow-y', 'hidden');
