@@ -77,7 +77,7 @@ if ( post_password_required() ) {
                             </div>
                             <?php wc_get_template( 'single-product/meta.php' ); ?>
                             <?php wc_get_template( 'single-product/short-description.php' ); ?>
-                            <a href="#" class="produc-info">Voir toutes les informations</a>
+                            <a href="#product-desc" class="produc-info">Voir toutes les informations</a>
                         </div>
                         <div class="custom-flex_column">
                             <p class="product-status"><?= $product->get_availability()['availability'] ?></p>
@@ -223,7 +223,7 @@ if ( post_password_required() ) {
         </div>
     </section>
 
-    <section class="product-desc">
+    <section id="product-desc" class="product-desc">
        <div class="container">
            <div class="product-desc_content">
                <div class="product-desc_column">

@@ -437,6 +437,7 @@ h4 {
   position: relative;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 .prenav-header .prenavbar .navigation .cart-contents {
   background: red;
@@ -1480,6 +1481,27 @@ footer .loi .detail {
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .number-input input[type=number]::-webkit-inner-spin-button, .single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .number-input input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .variations_form .variations {
+  width: 100%;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .variations_form .variations .label {
+  display: none;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .value {
+  width: 100%;
+  margin-top: 10px;
+  display: block;
+}
+.single-product .single-product_desc .custom-flex .summary .custom-flex .product-quantity .value select {
+  border: 1px solid #E2DAC3;
+  color: #ADADAD;
+  font-size: 12px;
+  border-radius: 3px;
+  width: 100%;
+  height: 32px;
+  background: transparent;
+  padding: 5px;
 }
 .single-product .single-product_desc .custom-flex .summary .custom-flex .product-info {
   margin: 20px 0 0 0;

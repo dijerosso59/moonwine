@@ -17,7 +17,7 @@
                         <?php endforeach ?>
                     </ul>
                 </div>
-                <?php $text = "Voir les abonnements"; $link = "/abonnement"; include 'include/button.php'; ?>
+                <?php $text = "Voir les abonnements"; $link = "/abonnements"; include 'include/button.php'; ?>
             </div>
             <div class="splide" aria-label="Custom Arrows Example">
                 <div class="splide__track">
