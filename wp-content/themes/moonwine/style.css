@@ -1793,6 +1793,10 @@ footer .loi .detail {
   margin: 0;
 }
 
+.postid-60 .product-composition {
+  display: none !important;
+}
+
 .home-slide {
   position: relative;
   overflow: hidden;
